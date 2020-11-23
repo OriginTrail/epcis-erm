@@ -1,0 +1,18 @@
+urn:epcglobal:cbv:sdt:owning_party 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/source_and_destination_types> ;
+    skos:prefLabel "Owning party" ; 
+    skos:description """The source or destination identifier denotes the party who owns (or is intended to own) the objects at the originating endpoint or terminating endpoint (respectively) of the business transfer of which this EPCIS event is a part.""" .
+
+urn:epcglobal:cbv:sdt:possessing_party 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/source_and_destination_types> ;
+    skos:prefLabel "Possessing party" ; 
+    skos:description """The source or destination identifier denotes the party who has (or is intended to have) physical possession of the objects at the originating endpoint or terminating endpoint (respectively) of the business transfer of which this EPCIS event is a part.""" .
+
+urn:epcglobal:cbv:sdt:location 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/source_and_destination_types> ;
+    skos:prefLabel "location" ; 
+    skos:description """The source or destination identifier denotes the physical location of the originating endpoint or terminating endpoint (respectively) of the business transfer of which this EPCIS event is a part. When a source of this type is specified on an EPCIS event at the originating endpoint of a business transfer, the source identifier SHOULD be consistent with the Read Point specified in that event. When a destination of this type is specified on an EPCIS event at the terminating endpoint of a business transfer, the destination identifier SHOULD be consistent with the Read Point specified in that event.""" .
+

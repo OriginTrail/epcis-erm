@@ -1,0 +1,108 @@
+@startuml
+
+class Event {
+    a                       gs1-epcis:Event 
+    eventTime               xsd:dateTime
+    recordTime              xsd:dateTime
+    eventTimeZoneOffset     string
+    eventID                 string
+}
+
+class ObjectEvent {
+    a                       gs1-epcis:ObjectEvent
+} 
+
+class AggregationEvent {
+    a                       gs1-epcis:AggregationEvent
+} 
+
+class TransactionEvent {
+    a                       gs1-epcis:TransactionEvent
+}
+
+class TransformationEvent {
+    a                       gs1-epcis:TransactionEvent
+    transformationID        string
+}
+
+class Product {
+    a   gs1:Product
+    https://www.gs1.org/voc/Product
+}
+
+class Organization {
+    a gs1:Organization
+    https://www.gs1.org/voc/Organization
+}
+
+class Transaction {
+    transactionType         TransactionType
+}
+
+class Place {
+    a                       gs1:Place
+    https://gs1.org/voc/Place
+}
+
+class BusinessStep {
+    a skos:Concept
+    skos:conceptScheme      <taxonomy/business_step>
+    skos:prefLabel          string
+    skos:description        string
+    fsm:example             string
+}
+
+class Disposition {
+    a skos:Concept
+    skos:conceptScheme      <taxonomy/disposition>
+    skos:prefLabel          string
+    skos:description        string
+    fsm:example             string
+}
+
+class ActionType {
+    a skos:Concept
+    skos:conceptScheme      <taxonomy/action_type>
+    skos:prefLabel          string
+    skos:description        string
+    fsm:example             string
+}
+
+class Quantity {
+    quantity                xsd:double
+    uom                     string
+}
+
+
+Event -up-> ActionType : action
+Event -up-> BusinessStep : businessStep
+Event -up-> Disposition : disposition
+Event -up-> Place : readPoint
+Event -up-> Place : businessLocation
+Event -up->  Organization : source                  
+Event -up->  Organization : destination
+Event -up->  Transaction : businessTransaction
+
+ObjectEvent -->  Product : epc
+
+AggregationEvent -->  Product : childEpc
+AggregationEvent -->  Product : parent
+TransactionEvent -->  Quantity : childQuantity
+
+TransactionEvent -->  Product : epc
+TransactionEvent -->  Product : parent
+TransactionEvent -->  Quantity : quantity
+
+TransformationEvent -->  Product : inputEpc
+TransformationEvent -->  Product : outputEpc
+TransformationEvent -->  Product : parent
+TransformationEvent -->  Quantity : inputQuantity
+TransformationEvent -->  Quantity : outputQuantity
+
+Quantity --> Product : epc
+
+ObjectEvent -up-> Event : rdfs:subClassOf
+AggregationEvent -up-> Event : rdfs:subClassOf
+TransactionEvent -up-> Event : rdfs:subClassOf
+TransformationEvent -up-> Event : rdfs:subClassOf
+@enduml

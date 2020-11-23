@@ -1,0 +1,314 @@
+
+
+urn:epcglobal:cbv:bizstep:accepting
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "accepting" ;
+    skos:description "Denotes a specific activity within a business process where an object changes possession and/or ownership." ;
+    fsm:example """Retailer X unloads a pallet on to the receiving dock. The numbers of cases on the pallet are counted. The pallets are disaggregated from the shipping conveyance. The quantity is verified against the delivery document (Freight Bill or Bill of Lading), notating any over, short or damaged product at the time of delivery. Typically this process releases freight payment and completes the contractual agreement with the carrier of delivering the product/assets to a specified location.
+A parcel carrier drops off five boxes at Distributor Y's DC. A person on the Receiving Dock signs that they accept the five boxes from the parcel carrier.
+A wholesaler is assigned a lot of fish at a fish auction, verifies the quantity and acknowledges receipt.
+A manufacturer’s fork lift driver scans the IDs of components which have been removed from a consignment warehouse. In doing so, the components are added to the manufacturer’s inventory""" .
+
+urn:epcglobal:cbv:bizstep:arriving
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "arriving" ;
+    skos:description "Denotes a specific activity within a business process where an object arrives at a location." ;
+    fsm:example """Truckload of a shipment arrives into a yard. Shipment has not yet been received or accepted.""" .
+
+urn:epcglobal:cbv:bizstep:assembling
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "assembling" ;
+    skos:description "Denotes an activity within a business process whereby one or more objects are combined to create a new finished product.
+In contrast to transformation, in the output of assembling the original objects are still recognisable and/or the process is reversible; hence, assembling would be used in an Aggregation Event, not a Transformation Event." ;
+    fsm:example """Computer parts (hard drive, battery, RAM) assembled into a consumer ready computer
+Healthcare kitting: a surgical kit including drug, syringe, and gauze are combined to create a new ‘product’: a kit""" .
+
+urn:epcglobal:cbv:bizstep:collecting
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "collecting" ;
+    skos:description "Denotes a specific activity within a business process where an object is picked up and collected for future disposal, recycling or re-used." ;
+    fsm:example """An organisation picks up disposed consumer electronics in an end of life state from various different organisations. After the goods are picked up, they typically are brought back and received into a Collection Centre
+Rented or leased pallets are picked up and brought to a collection centre.""" .
+
+urn:epcglobal:cbv:bizstep:commissioning
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "commissioning" ;
+    skos:description """Process of associating an instance-level identifier (such as an EPC) with a specific object, or the process of associating a class-level identifier, not previously used, with one or more objects. A tag may have been encoded and applied in this step, or may have been previously encoded.
+In the case of a class-level identifier, commissioning differs from creating_class_instance in that commissioning always indicates that this is the first use of the class-level identifier, whereas creating_class_instance does not specify whether the class-level identifier has been used before.""" ;
+    fsm:example """On a packaging line, an encoded EPC is applied to a case and associated to the product.
+An individual virtual document (e.g. digital coupon, digital voucher, etc.) is assigned an EPC
+One hundred bottles of a particular batch of pharmaceutical product are produced, those being the first bottles of that batch to be produced.
+Sides of beef are transformed into individual packaged steaks. This may be an EPCIS 1.2 TransformationEvent if the input sides of beef are also tracked.""" .
+
+urn:epcglobal:cbv:bizstep:consigning
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "consigning" ;
+    skos:description """Indicates the overall process of staging_outbound, loading, departing, and accepting. It may be used when more granular process step information is unknown or inaccessible.
+The use of consigning is mutually exclusive from the use of staging_outbound, loading, departing, and accepting.
+Note: This business step is similar to shipping, but includes a change of possession and/or ownership at the outbound side.""" ;
+    fsm:example """A wholesaler comes aboard a fishing vessel, selects and buys boxes of fish, and brings them to his premises.
+A manufacturer retrieves components from a consignment warehouse for use in its assembly line. In the logical second of leaving the consignment warehouse, the components pass into the ownership of the manufacturer.
+A manufacturer stages products for loading, loads them into a container, the container is sealed, and the container departs. Ownership transfers to the receiver sometime during this overall process. If this is done in a single step, then business step consigning is used.""" .
+
+urn:epcglobal:cbv:bizstep:creating_class_instance
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "creating class instance" ;
+    skos:description """Denotes a step in a business process where an instance or increased quantity of a class-level identifier is produced. Unlike commissioning, this business step may be repeated for the same class-level identifier.""" ;
+    fsm:example """Water, sugar, and other ingredients are combined to produce a single batch of soda over a single shift on a single production line. This may be an EPCIS 1.2 TransformationEvent if the input ingredients are tracked.
+Potatoes are sorted by size and quality, washed, and packed into cases of a single lot in a single packaging facility on a single date.""" .
+
+urn:epcglobal:cbv:bizstep:cycle_counting
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "cycle_counting" ;
+    skos:description """Process of counting objects within a location in order to obtain an accurate inventory for business needs other than accounting purposes (e.g., replenishment and allocation).""" ;
+    fsm:example """A preselected subset of objects (for instance, all products belonging to a certain brand owner or a specific object class) within a retail store, are counted by a handheld reader.
+All objects of a specific sub-location (sales floor or a shelf on the sales floor, e.g.) are counted by a handheld reader.""" .
+
+urn:epcglobal:cbv:bizstep:decommissioning
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "decommissioning" ;
+    skos:description """Process of disassociating an instance- level identifier (such as an EPC) with an object. The object may be re- commissioned at some point in the future – however only with a new instance-level identifier.""" ;
+    fsm:example """An eSeal on a reusable container is broken when the container is opened, so that the container is no longer identified by the instance-level identifier that was in the eSeal.
+A digital coupon or an empties refund voucher is redeemed at retail point-of-sale""" .
+
+urn:epcglobal:cbv:bizstep:departing
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "departing" ;
+    skos:description """Denotes a specific activity within a business process where an object leaves
+a location on its way to a destination.""" ;
+    fsm:example """Truckload of a shipment departs a yard, typically through a gate and begins transit to another location Distributor or Retailer puts empty case in the incinerator or box crusher.""" .
+
+urn:epcglobal:cbv:bizstep:disassembling
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "disassembling" ;
+    skos:description """Denotes a specific activity within a business process where an object is broken down into separate, uniquely identified component parts.""" ;
+    fsm:example """Before feeding a consumer electronics end of life item (a computer) into recycling operation line, it is necessary to disassemble the parts for the purpose of being recycled or disposed of in an environmentally sound manner.
+A surgical kit (e.g. 2- 50 count bottles of medication and 1 syringe gauze) is broken down into its separate component parts""" .
+
+urn:epcglobal:cbv:bizstep:dispensing
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "dispensing" ;
+    skos:description """Denotes a specific activity within a business process where a product is made available in full or part to a consumer .""" ;
+    fsm:example """A pharmacist dispenses a pharmaceutical to fill a specific prescription written by a physician, to a consumer or patient.
+A deli manager slices a 5 pound package of turkey for sale.""" .
+
+urn:epcglobal:cbv:bizstep:encoding
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "encoding" ;
+    skos:description """Process of writing an instance-level identifier (typically an EPC) to a barcode or RFID tag, where the identifier is not yet associated with an object at this step in the process.""" ;
+    fsm:example """3rd Party writes tags and returns spool of case tags to Manufacturer""" .
+
+urn:epcglobal:cbv:bizstep:entering_exiting 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "entering exiting" ; 
+    skos:description """Denotes a specific activity at the Entrance/Exit door of a facility where customers are either leaving with purchased product or entering with product to be returned to the facility.""" ; 
+    fsm:example """Customer leaves the facility of Retailer X with their purchased items through a customer entrance/exit door.""" . 
+
+urn:epcglobal:cbv:bizstep:holding 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "holding" ; 
+    skos:description """Denotes a specific activity within a business process where an object is segregated for further review.""" ; 
+    fsm:example """Retailer X unloads a second pallet on to their receiving dock, and, finding no purchase order for the pallet, moves the pallet to a holding area on the dock 
+Distributor Y obtains a shipment of pharmaceutical product. Distributor Y finds that their supplier cannot provide a complete pedigree. Distributor Y moves the shipment to a quarantine area on their dock. 
+Shipper Z is told by Customs to move a container to a special area until Customs can inspect and clear the container.""" .
+
+urn:epcglobal:cbv:bizstep:inspecting 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "inspecting" ; 
+    skos:description """Process of reviewing objects to address potential physical or documentation defects.""" ; 
+    fsm:example """Manufacturer A pulls 10 bottles from every batch to ensure that the product and pill count in the bottles match expectations 
+Distributor Y checks all returned products to designate them either as saleable or as damaged 
+Regulator R pulls 3 bottles from a shelf to determine if the bottles have a correct pedigree 
+Customs Agent C uses a machine to scan the contents of a shipping container 
+Pallet pool operator Z checks if certain pallets comply with quality standards.""" . 
+
+urn:epcglobal:cbv:bizstep:installing 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "installing" ; 
+    skos:description """Denotes a specific activity within a business process where an object is put into a composite object (not merely a container). 
+In installing the composite object exists prior to this step, whereas in assembling the composite object is created during the step.""" ; 
+    fsm:example """Additional memory chips and a rechargeable battery are installed within a computer 
+A duplexing unit is installed on a laser printer 
+Additional safety equipment is installed within the cabin of an aircraft or vehicle (e.g. fire extinguishers)""" . 
+
+urn:epcglobal:cbv:bizstep:killing 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "killing" ; 
+    skos:description """Process of terminating an RFID tag previously associated with an object. The object and its instance-level identifier may continue to exist and be the subject of subsequent events (via a barcode, manual data entry, replacement tag, etc.).""" ; 
+    fsm:example """Kill Command is issued to the tag to prevent any further reading of the tag or the information on the tag.""" . 
+
+urn:epcglobal:cbv:bizstep:loading 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "loading" ; 
+    skos:description """Denotes a specific activity within a business process where an object is loaded into shipping conveyance.""" ; 
+    fsm:example """Manufacturer A loads pallets into a container. The pallets are aggregated to the container. 
+Distributor Y loads racks full of totes on to a truck""" . 
+
+urn:epcglobal:cbv:bizstep:packing 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "packing" ; 
+    skos:description """Denotes a specific activity within a business process that includes putting objects into a larger container – usually for shipping. Aggregation of one unit to another typically occurs at this point.""" ; 
+    fsm:example """12 packs of soda are placed into a case Loose potatoes are placed into a tote.""" . 
+
+urn:epcglobal:cbv:bizstep:picking 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "picking" ; 
+    skos:description """Denotes a specific activity within a business process that includes the selecting of objects to fill an order.""" ; 
+    fsm:example """Distributor Y places three units into a tote to meet the requirements of a purchase order 
+Manufacturer A pulls three pallets from its racks to fulfil a purchase order""" . 
+
+urn:epcglobal:cbv:bizstep:receiving 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "receiving" ; 
+    skos:description """Denotes a specific activity within a business process that indicates that an object is being received at a location and is added to the receiver's inventory. 
+The use of receiving is mutually exclusive from the use of arriving and accepting.""" ; 
+    fsm:example """Retailer X confirms that the count of cases on the pallet equals the expected count in a purchase order. Retailer X takes the cases into inventory. Typically, this process matches the product to the purchase order for payment to the supplier. 
+A shipment from a manufacturer factory site to manufacturer distribution centre, is matched against the transaction record then added to local inventory.""" . 
+
+urn:epcglobal:cbv:bizstep:removing  
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "removing " ; 
+    skos:description """Denotes a specific activity within a business process where an object is taken out of a composite object. """ ; 
+    fsm:example """A defective airplane part is taken out of the engine """ . 
+
+urn:epcglobal:cbv:bizstep:repackaging 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "repackaging" ; 
+    skos:description """Denotes a specific activity within a business process where an object’s packaging configuration is changed.""" ; 
+    fsm:example """Distributor Y receives one box full of batteries and another box full of laptops without batteries. Distributor Y ships out new boxes containing one laptop and one battery.""" . 
+
+urn:epcglobal:cbv:bizstep:repairing 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "repairing" ; 
+    skos:description """Denotes a specific activity within a business process where a malfunctioning product is repaired (typically by a post- sales service), without replacing it by a new one.""" ; 
+    fsm:example """A computer is brought to a repair centre to fix a problem 
+An airplane part is in maintenance centre to diagnose an issue""" . 
+
+urn:epcglobal:cbv:bizstep:replacing 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "replacing" ; 
+    skos:description """Denotes a specific activity within a business process where an object is substituted or exchanged for another object.""" ; 
+    fsm:example """A defective airplane part is replaced by a new part.""" . 
+
+urn:epcglobal:cbv:bizstep:reserving 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "reserving" ; 
+    skos:description """Process in which a set of instance-level identifiers, not yet commissioned, are provided for use by another party.""" ; 
+    fsm:example """Manufacturer provides set of case EPC numbers to a 3rd Party labeller""" . 
+
+urn:epcglobal:cbv:bizstep:retail_selling 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "retail_selling" ; 
+    skos:description """Denotes a specific activity within a business process at a point-of-sale for the purpose of transferring ownership to a customer in exchange for something of value (currency, credit, etc.).""" ; 
+    fsm:example """Retailer X sells a screwdriver to a customer by checking it out through a point-of-sale system.""" . 
+
+urn:epcglobal:cbv:bizstep:shipping 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "shipping" ; 
+    skos:description """Indicates the overall process of staging_outbound, loading and departing. It may be used when more granular process step information is unknown or inaccessible. It may indicate a final event from a shipping point. 
+The use of shipping is mutually exclusive from the use of staging_outbound, departing, or loading.""" ; 
+    fsm:example """Manufacturer A loads and reads product into the shipping container and closes the door. The product has been read out of the shipping facility. The shipment is immediately picked up and a BOL is associated at this point. (The shipment has left the yard) 
+At Distributor Y, the truck containing racks full of totes pulls away from the shipping dock or staging area. 
+Manufacturer A completes loading product into trailer and seals door. The trailer is ready for pickup. The generation of a Despatch Advice / ASN triggers a “shipping” event. 
+A 3PL picks and tags the product. The product is loaded into a trailer and signed over to a transportation carrier. The 3PL notifiesthe manufacturer who generates a “shipping” event. NOTE: This would be the case if there were NO departing step at a read point at the gate. 
+Typical Process flow: 
+staging_outbound
+loading
+departing
+The above steps assume an organisation’s ability and desire to share all steps in the process. If those process steps are not captured, the single business step of shipping would be used.""" . 
+
+urn:epcglobal:cbv:bizstep:staging_outbound 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "staging outbound" ; 
+    skos:description """Denotes a specific activity within a business process in which an object moves from a facility to an area where it will await transport pick-up.""" ; 
+    fsm:example """Container is being closed and will be subsequently loaded onto a vehicle in the yard. 
+Container is being closed and seal is applied, and will be subsequently loaded onto a vehicle in the yard 
+Product has been picked and is now in a staging lane waiting for loading into a container""" . 
+
+urn:epcglobal:cbv:bizstep:stock_taking 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "stock taking" ; 
+    skos:description """Process of counting objects within a location following established rules and/or standards to serve as a basis for accounting purposes.""" ; 
+    fsm:example """All EPCs in a retail store are read by a handheld reader following a procedure accepted by the organisation’s accounting firm.""" . 
+
+urn:epcglobal:cbv:bizstep:stocking 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "stocking" ; 
+    skos:description """Denotes a specific activity within a business process within a location to make an object available to the customer or for order fulfilment within a DC.""" ; 
+    fsm:example """Retailer X places cans from a case on to a shelf on the sales floor 
+Dist X moves goods from a storage area to a picking area""" . 
+
+urn:epcglobal:cbv:bizstep:storing 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "storing" ; 
+    skos:description """Denotes a specific activity within a business process where an object is moved into and out of storage within a location.""" ; 
+    fsm:example """Manufacturer A moves a pallet from the receiving area to a rack 
+Retailer X moves a case from the receiving dock to a shelf in the backroom""" . 
+
+urn:epcglobal:cbv:bizstep:transporting 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "transporting" ; 
+    skos:description """Process of moving an object from one location to another using a vehicle (e.g., a ship, a train, a lorry, an aircraft).""" ; 
+    fsm:example """Carrier X conveys 150 sea containers from Hong Kong seaport to Hamburg seaport with a container vessel. 
+A train with 20 goods wagons goes from one train station to another. 
+A lorry moves a swap trailer from a depot to a distribution centre.""" . 
+
+urn:epcglobal:cbv:bizstep:unloading 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "unloading" ; 
+    skos:description """Denotes a specific activity within a business process where an object is unloaded from a shipping conveyance.""" ; 
+    fsm:example """Manufacturer A unloads pallets from a shipping conveyance. The pallets are disaggregated from the shipping conveyance. 
+Distributor Y unloads racks full of totes from a truck""" . 
+
+urn:epcglobal:cbv:bizstep:unpacking 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "unpacking" ; 
+    skos:description """Denotes a specific activity within a business process that includes removing products (individuals, inners, cases, pallets) from a larger container – usually after receiving or accepting. Disaggregation of one unit from another typically occurs at this point.""" ; 
+    fsm:example """12 packs of soda are removed from a case Loose potatoes are taken off from a tote.""" . 
+
+urn:epcglobal:cbv:bizstep:void_shipping 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/business_step> ;
+    skos:prefLabel "void shipping" ; 
+    skos:description """Denotes a process of declaring that one or more objects in a prior outbound process (captured in an EPCIS event having business step shipping, departing, or consigning) were not shipped (or departed or consigned) as previously indicated.""" ; 
+    fsm:example """A sender cancels a shipment after a prior shipping event. 
+A sender discovers, either by notification from a recipient or on their own, that a shipment they believed occurred and created a shipping event for, did not actually occur. The record is updated to reflect this. 
+A sender discovers that three out of ten items previously shipped were not included in the shipment. The voidShipping event indicates that those three items were not shipped.""" . 
+
+

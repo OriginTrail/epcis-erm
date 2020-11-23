@@ -1,0 +1,18 @@
+<taxonomy/action_type/add>
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/action_type> ;
+    skos:prefLabel "ADD" ; 
+    skos:description """The entity in question has been created or added to.""" . 
+
+<taxonomy/action_type/observe>
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/action_type> ;
+    skos:prefLabel "OBSERVE" ; 
+    skos:description """The entity in question has not been changed: it has neither been created, added to, destroyed, or removed from.""" . 
+
+<taxonomy/action_type/delete>
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/action_type> ;
+    skos:prefLabel "DELETE" ; 
+    skos:description """The entity in question has been removed from or destroyed altogether.""" . 
+

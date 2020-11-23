@@ -1,0 +1,196 @@
+@startuml
+class Broiler1 {
+    a                   gs1:Product
+    gs1:productName     "Broiler"
+}
+
+class Broiler2 {
+    a                   gs1:Product
+    gs1:productName     "Broiler"
+}
+
+class BroilerEgg {
+    a                   gs1:Product
+    gs1:productName     "Broiler Egg"
+}
+
+class BroilerMeat {
+    a                   gs1:Product
+    gs1:productName     "Broiler meat"
+}
+
+class BroilerPackagedMeat {
+    a                   gs1:Product
+    gs1:productName     "Broiler packaged meat"
+}
+
+class BreedingFirm {
+    a                       gs1:Organization
+    gs1:organizationName    "BroilerParentBreeders A"
+}
+
+class ParentBreeder {
+    a                       gs1:Organization
+    gs1:organizationName    "BroilerParentBreeders A"
+}
+
+class HatchingFirm {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+ 
+}
+
+class BroilerFarm {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class SlaughterHouse {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class Processor {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class Retailer {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class LayAnEgg {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "LayAnEgg" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class Hatching {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "Hatching an egg" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class Slaughter {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "Killing a broiler" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class Packaging {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "Packaging the meat" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class TransportEvent1 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-01-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "1" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class TransportEvent2 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-08-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "2" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class TransportEvent3 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-15-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "3" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class TransportEvent4 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-21-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "4" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class TransportEvent5 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-28-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "5" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class TransportEvent6 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "6" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+
+TransportEvent1 --> BreedingFirm : source
+TransportEvent1 --> ParentBreeder : destination
+TransportEvent1 -up-> Broiler1 : epc
+
+LayAnEgg --> ParentBreeder : source, destination
+LayAnEgg --> Broiler1 : inputEpc
+LayAnEgg --> BroilerEgg : outputEpc
+
+TransportEvent2 --> ParentBreeder : source
+TransportEvent2 --> HatchingFirm : destination
+TransportEvent2 -up-> BroilerEgg : epc
+
+Hatching --> HatchingFirm : source, destination
+Hatching --> BroilerEgg : inputEpc
+Hatching --> Broiler2 : outputEpc
+
+TransportEvent3 --> HatchingFirm : source
+TransportEvent3 --> BroilerFarm : destination
+TransportEvent3 -up-> Broiler2 : epc
+
+TransportEvent4 --> BroilerFarm : source
+TransportEvent4 --> SlaughterHouse : destination
+TransportEvent4 -up-> Broiler2 : epc
+
+Slaughter --> SlaughterHouse : source, destination
+Slaughter --> Broiler2 : inputEpc
+Slaughter --> BroilerMeat : outputEpc
+
+TransportEvent5 --> SlaughterHouse : source
+TransportEvent5 --> Processor : destination
+TransportEvent5 -up-> BroilerMeat : epc
+
+Packaging --> Processor : source, destination
+Packaging --> BroilerMeat : inputEpc
+Packaging --> BroilerPackagedMeat : outputEpc
+
+TransportEvent6 --> Processor : source
+TransportEvent6 --> Retailer : destination
+TransportEvent6 -up-> BroilerPackagedMeat : epc
+
+
+
+@enduml

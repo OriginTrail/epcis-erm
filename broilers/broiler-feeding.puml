@@ -1,0 +1,52 @@
+@startuml
+class Broiler {
+    a                   gs1:Product
+    gs1:productName     "Broiler"
+}
+
+class BroilerFood {
+    a                   gs1:Product
+    gs1:productName     "Broiler Food"
+}
+
+
+class FoodProducer {
+    a                       gs1:Organization
+    gs1:organizationName    "Food producer A"
+}
+
+class ParentBreeder {
+    a                       gs1:Organization
+    gs1:organizationName    "BroilerParentBreeders A"
+}
+
+class BroilerFeeding1 {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "feeding1" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class BroilerFood1 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-15-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "food1" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+
+BroilerFeeding1 --> BroilerFood : inputEpc
+BroilerFeeding1 --> Broiler : inputEpc
+BroilerFeeding1 --> Broiler : outputEpc
+BroilerFeeding1 -up-> ParentBreeder : source
+
+BroilerFood1 --> FoodProducer : source
+BroilerFood1 -up-> ParentBreeder : destination
+BroilerFood1 --> BroilerFood : epc
+
+
+@enduml

@@ -1,0 +1,95 @@
+@startuml
+
+class ImporterOfLiveBroilers {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A" 
+}
+
+class ExporterOfLiveBroilers {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A" 
+}
+
+class ExporterOfBroilerMeat {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A" 
+}
+
+class ImporterOfBroilerMeat {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A" 
+}
+
+class Broiler {
+    a                   gs1:Product
+    gs1:productName     "Broiler"
+}
+
+class BroilerMeat {
+    a                   gs1:Product
+    gs1:productName     "Broiler meat"
+}
+
+class BroilerFarm {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class SlaughterHouse {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class ExportingLiveBroiler {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "6" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class ImportingLiveBroiler {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "6" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class ExportingBroilerMeat {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "6" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class ImportingBroilerMeat {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "6" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+ExportingLiveBroiler --> BroilerFarm : source
+ExportingLiveBroiler --> ExporterOfLiveBroilers : destination
+ExportingLiveBroiler -up-> Broiler : epc
+
+ImportingLiveBroiler --> ImporterOfLiveBroilers : source
+ImportingLiveBroiler --> BroilerFarm : destination
+ImportingLiveBroiler -up-> Broiler : epc
+
+ExportingBroilerMeat --> SlaughterHouse : source
+ExportingBroilerMeat --> ExporterOfBroilerMeat : destination
+ExportingBroilerMeat -up-> BroilerMeat : epc
+
+ImportingBroilerMeat --> ImporterOfBroilerMeat : source
+ImportingBroilerMeat --> SlaughterHouse : destination
+ImportingBroilerMeat -up-> BroilerMeat : epc
+
+@enduml

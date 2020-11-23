@@ -1,0 +1,197 @@
+
+urn:epcglobal:cbv:disp:active 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "active" ; 
+    skos:description """A commissioned object has just been introduced into the supply chain.""" ; 
+    fsm:example """Manufacturer A commissions tags for 10 cases of product. A virtual document has been assigned an EPCBusiness step:commissioning""" . 
+
+urn:epcglobal:cbv:disp:container_closed 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "container closed" ; 
+    skos:description """Object has been loaded onto a container, the doors have been closed and the shipment sealed.""" ; 
+    fsm:example """Container is being closed and will be awaiting pickup in the yard. Container is being closed and electronic seal is applied.Business step:staging_outbound""" . 
+
+urn:epcglobal:cbv:disp:damaged 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "damaged" ; 
+    skos:description """Object is impaired in its usefulness and/or reduced in value due to a defect.""" ; 
+    fsm:example """Pallet pool operator P notices that a plank of a pallet is broken and records this incident by scanning the EPC of the pallet. 
+Retailer R receives a shipment where the product packages on the pallet have been dented 
+Business step: 
+accepting inspecting receiving removing repairing replacing""" . 
+
+urn:epcglobal:cbv:disp:destroyed 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "destroyed" ; 
+    skos:description """Object has been fully rendered non-usable.""" ; 
+    fsm:example """Incinerator Operator B indicates that product and packaging have been incinerated 
+Business step: 
+destroying""" . 
+
+urn:epcglobal:cbv:disp:dispensed 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "dispensed" ; 
+    skos:description """A full quantity of product is distributed to a consumer.""" ; 
+    fsm:example """A pharmacist dispenses a pharmaceutical in a container’s totality to fill a specific prescription written by a physician, to a consumer or patient. 
+A deli manager slices the complete contents of a 5 pound package of turkey for sale. 
+NOTE: this disposition reflects the disposition of the original object, not what was dispensed.""" . 
+
+urn:epcglobal:cbv:disp:disposed
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "disposed " ; 
+    skos:description """Object has been returned for disposal. """ ; 
+    fsm:example """A package of pharmaceuticals has been picked up by a distributor and will be subsequently destroyed """ . 
+
+urn:epcglobal:cbv:disp:encoded 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "encoded" ; 
+    skos:description """An instance-level identifier has been written to a barcode or RFID tag, but not yet commissioned.""" ; 
+    fsm:example """3rd Party has written EPCs to tags and returns spool of case tags to Manufacturer 
+Business step: 
+encoding""" . 
+
+urn:epcglobal:cbv:disp:expired 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "expired" ; 
+    skos:description """Object is past expiration date.""" ; 
+    fsm:example """Distributor Y indicates that a product is past its expiration date Business step:holdingstaging_outbound 
+storing""" . 
+
+urn:epcglobal:cbv:disp:in_progress 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "in progress" ; 
+    skos:description """Default disposition for object proceeding through points in the supply chain.""" ; 
+    fsm:example """Product arrives at a location and is being accepted and verified. Product is being prepared for shipment.Business step:receiving 
+pickingloading accepting staging_outbound arriving void_shipping""" . 
+
+urn:epcglobal:cbv:disp:in_transit 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "in transit" ; 
+    skos:description """Object being shipped between two trading partners.""" ; 
+    fsm:example """Shipper Z pulled a container/product out of a manufacturer’s yard on to a road 
+Business step: 
+shipping
+departing""" . 
+
+urn:epcglobal:cbv:disp:inactive 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "inactive" ; 
+    skos:description """Decommissioned object that may be reintroduced to the supply chain.""" ; 
+    fsm:example """A reusable tag is removed from a reusable transport item. 
+A digital coupon or an empties refund voucher has been redeemed at retail point-of-sale 
+Business step: 
+decommissioning""" . 
+
+urn:epcglobal:cbv:disp:no_pedigree_match 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "no pedigree match" ; 
+    skos:description """In validating the pedigree for the object, no match was found, causing the product to be quarantined for further investigation and disposition.""" ; fsm:example """Distributor Y could not obtain a valid pedigree for a product from its Manufacturer A 
+Business step: 
+holding
+staging_outbound
+storing""" . 
+
+urn:epcglobal:cbv:disp:non_sellable_other 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "non sellable other" ; 
+    skos:description """Object cannot be sold to a customer .""" ; 
+    fsm:example """A product is not sellable pending further evaluation. 
+A product is not sellable, and one of the other dispositions (expired, recalled, damaged, no_pedigree_match) does not apply. 
+Product has been sold and is awaiting customer pick-up. Business step:holdinginspecting 
+staging_outbound
+storing""" . 
+
+urn:epcglobal:cbv:disp:partially_dispensed 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "partially dispensed" ; 
+    skos:description """A portion of a product is distributed to a customer, while additional product is retained for subsequent distribution.""" ; 
+    fsm:example """A pharmacist dispenses 10 pills from a 100-count bottle to fill a customer prescription. 
+A deli manager slides and packages one pound of a 10 pound ham for customer purchase. 
+NOTE: This disposition reflects the disposition of the original object, not what was dispensed.""" . 
+
+urn:epcglobal:cbv:disp:recalled 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "recalled" ; 
+    skos:description """Object is non-sellable because of public safety reasons.""" ; 
+    fsm:example """Manufacturer A requested that all Retailers and Distributors return its batteries that could overheat and explode 
+Business step: 
+holding
+staging_outbound
+storing""" . 
+
+urn:epcglobal:cbv:disp:reserved 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "reserved" ; 
+    skos:description """Instance-level identifier has been allocated for a third party.""" ; 
+    fsm:example """Distributor receives EPC numbers and can encode tag with the numbers. 
+Business step: 
+reserving""" . 
+
+urn:epcglobal:cbv:disp:retail_sold 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "retail_sold" ; 
+    skos:description """Product has been purchased by a customer.""" ; 
+    fsm:example """A customer at Retailer X purchased a screwdriver by checking it out through the point of sale system 
+Business step: 
+retail_selling""" . 
+
+urn:epcglobal:cbv:disp:returned 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "returned" ; 
+    skos:description """Object has been sent back for various reasons. It may or may not be sellable.""" ; 
+    fsm:example """Product is received at a returns centre from a customer because of an over-shipment, recall, expired product, etc. 
+Business step: 
+receiving holding shipping""" . 
+
+urn:epcglobal:cbv:disp:sellable_accessible 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "sellable accessible" ; 
+    skos:description """Product can be sold as is and customer can access product for purchase.""" ; 
+    fsm:example """Retailer X puts a case of screwdrivers on to a shelf or display within customer reach 
+Business step: 
+stocking receiving""" . 
+
+urn:epcglobal:cbv:disp:sellable_not_accessible 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "sellable not accessible" ; 
+    skos:description """Product can be sold as is, but customer cannot access product for purchase.""" ; 
+    fsm:example """Retailer X puts a case of screwdrivers on to a shelf in a store backroom 
+Business step: 
+receiving storing loading holding inspecting""" . 
+
+urn:epcglobal:cbv:disp:stolen
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "stolen unknown " ; 
+    skos:description """An object has been taken without permission or right. """ ; 
+    fsm:example """A pharmaceutical manufacturer completes an investigation of serial numbers that are missing from inventory, and concludes that they have been stolen """ . 
+
+urn:epcglobal:cbv:disp:unknown 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/disposition> ;
+    skos:prefLabel "unknown" ; 
+    skos:description """An object’s condition is not known. """ . 
+
+
+
+

@@ -1,0 +1,11 @@
+urn:epcglobal:cbv:er:did_not_occur
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/error_reason> ;
+    skos:prefLabel "Did not occur" ;
+    skos:description "The prior event is considered erroneous because it did not actually occur. There are no corrective events. (In a CBV-Compliant Document, this error reason SHALL NOT be used in an error declaration that contains one or more corrective event IDs.)" .
+
+urn:epcglobal:cbv:er:incorrect_data
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/error_reason> ;
+    skos:prefLabel "Incorrect data" ;
+    skos:description "The prior event is considered erroneous because some or all of the data in the event are incorrect. Subsequent events may provide a correct indication of what actually occurred when the prior event was captured. These events may be linked using the corrective event IDs in the error declaration." .

@@ -1,0 +1,54 @@
+urn:epcglobal:cbv:btt:bol 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Bill of Lading" ; 
+    skos:description """Bill of Lading. A document issued by a carrier to a shipper, listing and acknowledging receipt of goods for transport and specifying terms of delivery""" .
+
+urn:epcglobal:cbv:btt:desadv 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Despatch Advice" ; 
+    skos:description """Despatch Advice. A document/message by means of which the seller or consignor informs the consignee about the despatch of goods. Also called an “Advanced Shipment Notice,” but the value desadv is always used regardless of local nomenclature.""" .
+
+urn:epcglobal:cbv:btt:inv 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Invoice" ; 
+    skos:description """Invoice. A document/message claiming payment for goods or services supplied under conditions agreed by the seller and buyer.""" .
+
+urn:epcglobal:cbv:btt:pedigree 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Pedigree" ; 
+    skos:description """Pedigree. A record that traces the ownership or custody and transactions of a product as it moves among various trading partners.""" . 
+
+urn:epcglobal:cbv:btt:po 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Purchase Order" ; 
+    skos:description """Purchase Order. A document/message that specifies details for goods and services ordered under conditions agreed by the seller and buyer.""" .
+
+urn:epcglobal:cbv:btt:poc 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Purchase Order Confirmation" ; 
+    skos:description """Purchase Order Confirmation. A document that provides confirmation from an external supplier to the request of a purchaser to deliver a specified quantity of material, or perform a specified service, at a specified price within a specified time.""" .
+
+urn:epcglobal:cbv:btt:prodorder
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Production Order" ; 
+    skos:description """Production Order. An organisation-internal document or message issued by a producer that initiates a manufacturing process of goods.""" .
+
+urn:epcglobal:cbv:btt:recadv 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Receiving Advice" ; 
+    skos:description """Receiving Advice. A document/message that provides the receiver of the shipment the capability to inform the shipper of actual goods received, compared to what was advised as being sent.""" .
+
+urn:epcglobal:cbv:btt:rma 
+    a skos:Concet ;
+    skos:conceptScheme <taxonomy/transaction_type> ;
+    skos:prefLabel "Return Merchandise Authorisation" ; 
+    skos:description """Return Merchandise Authorisation. A document issued by the seller that authorises a buyer to return merchandise for credit determination.""" . 
+
