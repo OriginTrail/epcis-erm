@@ -26,8 +26,8 @@ class TransformationEvent {
 }
 
 class Product {
-    a   gs1:Product
-    https://www.gs1.org/voc/Product
+    a   gs1:Epc
+    https://www.gs1.org/voc/Epc
 }
 
 class Organization {
@@ -83,26 +83,92 @@ Event -up->  Organization : source
 Event -up->  Organization : destination
 Event -up->  Transaction : businessTransaction
 
-ObjectEvent -->  Product : epc
+ObjectEvent -->  Epc : epc
 
-AggregationEvent -->  Product : childEpc
-AggregationEvent -->  Product : parent
+AggregationEvent -->  Epc : childEpc
+AggregationEvent -->  Epc : parent
 TransactionEvent -->  Quantity : childQuantity
 
-TransactionEvent -->  Product : epc
-TransactionEvent -->  Product : parent
+TransactionEvent -->  Epc : epc
+TransactionEvent -->  Epc : parent
 TransactionEvent -->  Quantity : quantity
 
-TransformationEvent -->  Product : inputEpc
-TransformationEvent -->  Product : outputEpc
-TransformationEvent -->  Product : parent
+TransformationEvent -->  Epc : inputEpc
+TransformationEvent -->  Epc : outputEpc
+TransformationEvent -->  Epc : parent
 TransformationEvent -->  Quantity : inputQuantity
 TransformationEvent -->  Quantity : outputQuantity
 
-Quantity --> Product : epc
+Quantity --> Epc : epc
 
 ObjectEvent -up-> Event : rdfs:subClassOf
 AggregationEvent -up-> Event : rdfs:subClassOf
 TransactionEvent -up-> Event : rdfs:subClassOf
 TransformationEvent -up-> Event : rdfs:subClassOf
+
+class Retailer {
+    a           fsm:Retailer
+}
+
+class Producer {
+    a           fsm:Producer
+}
+
+class Manufacturer {
+    a           fsm:Manufacturer
+}
+
+class FoodProcessor {
+    a           fsm:FoodProcessor
+}
+
+class CertificationBody {
+    a           fsm:CertificationBody
+}
+
+class CertificationSchemaOwner {
+    a           fsm:CertificationSchemaOwner
+}
+
+class Supplier {
+    a           fsm:Supplier
+}
+
+class Incident {
+    a           fsm:Incident
+}
+
+class Inspection {
+    a           fsm:Inspection
+}
+
+class LabTest {
+    a           fsm:LabTest
+}
+
+class Audit {
+    a           fsm:Audit
+}
+
+class CertificateGrant {
+    a           fsm:CertificateGrant
+}
+
+Producer --> Supplier : rdfs:subClassOf
+Manufacturer --> Supplier : rdfs:subClassOf
+FoodProcessor --> Supplier : rdfs:subClassOf
+Supplier --> Organization : rdfs:subClassOf
+Retailer --> Organization : rdfs:subClassOf
+CertificationBody --> Organization : rdfs:subClassOf
+CertificationSchemaOwner --> Organization : rdfs:subClassOf
+
+Incident --> ObjectEvent : rdfs:subClassOf
+Inspection --> ObjectEvent : rdfs:subClassOf
+LabTest --> ObjectEvent : rdfs:subClassOf
+Audit --> ObjectEvent : rdfs:subClassOf
+CertificateGrant --> ObjectEvent : rdfs:subClassOf
+
+Product -up-> Epc : rdfs:subClassOf
+Result -up-> Epc : rdfs:subClassOf
+
 @enduml
