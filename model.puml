@@ -171,4 +171,5 @@ CertificateGrant --> ObjectEvent : rdfs:subClassOf
 Product -up-> Epc : rdfs:subClassOf
 Result -up-> Epc : rdfs:subClassOf
 
+
 @enduml
