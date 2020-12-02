@@ -126,6 +126,30 @@ A TransformationEvent captures information about an event in which one or more p
 | destinationList | List<Destination> | (Optional) An unordered list of Destination elements (Section 7.3.5.4) that provide context about the terminating endpoint of a business transfer of which this event is a part. |
 | ilmd | ILMD | (Optional) Instance/Lot master data (Section 7.3.6) that describes the output objects created during this event. |
 
+
+# Certification
+
+In order to express certification of producers, food processors and other parties involved in the supply chain we need to handle two generic cases.
+1. Organization level certification
+![](certificate-example.svg)
+
+In this example we are expressing an ISO 22000:2005 certificate. 
+
+We treat the certificate as a product of the Certification Body. The certification body gives the 
+certificate to the Organization
+
+
+2. Product level certification
+![](certificate-product-example.svg)
+
+In this example we are expressing a Halal certificate. These certificates are provided
+only for some products provided by a country.
+
+We treat the certification grant in the same manner as the above example.
+
+The new thing is that the certificate node links
+to a product. This product is a GTIN prefix for a company product. All batches of this product will be linked to it with the fsm:product link.
+
 # Broilers example
 We took the use case regarding the life cycle of broilers and their supply chain.
 In the diagram we can see the different organizations and their interaction in the process of making broiler meat for consumers.
@@ -159,3 +183,5 @@ broiler is fed with a particular package of food.
 
 The import and export of broiler is represented in the diagram below. A import or export is a single event. The event is the point in time when the product reaches the destination organization.
 ![](broilers/broiler-export-import.png)
+
+

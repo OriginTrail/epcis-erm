@@ -26,8 +26,11 @@ class TransformationEvent {
 }
 
 class Product {
-    a   gs1:Epc
-    https://www.gs1.org/voc/Epc
+    a                           gs1:Product
+    gs1:gpcCategoryCode         xsd:string
+    gs1:linkType                xsd:anyURI
+    fsm:Organization            Organization
+    https://www.gs1.org/voc/Product
 }
 
 class Organization {
@@ -74,32 +77,25 @@ class Quantity {
 }
 
 
-Event -up-> ActionType : action
-Event -up-> BusinessStep : businessStep
-Event -up-> Disposition : disposition
-Event -up-> Place : readPoint
-Event -up-> Place : businessLocation
-Event -up->  Organization : source                  
-Event -up->  Organization : destination
-Event -up->  Transaction : businessTransaction
+Event -up-> ActionType : gs1-epcis:action
+Event -up-> BusinessStep : gs1-epcis:businessStep
+Event -up-> Disposition : gs1-epcis:disposition
+Event -up-> Place : gs1-epcis:readPoint, gs1-epcis:businessLocation
+Event -up->  Organization : gs1-epcis:source, gs1-epcis:destination                  
+Event -up->  Transaction : gs1-epcis:businessTransaction
 
-ObjectEvent -->  Epc : epc
+ObjectEvent -->  Product : gs1-epcis:epc
 
-AggregationEvent -->  Epc : childEpc
-AggregationEvent -->  Epc : parent
-TransactionEvent -->  Quantity : childQuantity
+AggregationEvent -->  Product : gs1-epcis:parent, gs1-epcis:childEpc
+AggregationEvent -->  Quantity : gs1-epcis:childQuantity
 
-TransactionEvent -->  Epc : epc
-TransactionEvent -->  Epc : parent
-TransactionEvent -->  Quantity : quantity
+TransactionEvent -->  Product : gs1-epcis:epc, gs1-epcis:parent
+TransactionEvent -->  Quantity : gs1-epcis:quantity
 
-TransformationEvent -->  Epc : inputEpc
-TransformationEvent -->  Epc : outputEpc
-TransformationEvent -->  Epc : parent
-TransformationEvent -->  Quantity : inputQuantity
-TransformationEvent -->  Quantity : outputQuantity
+TransformationEvent -->  Product : gs1-epcis:inputEpc, gs1-epcis:outputEpc, gs1-epcis:parent
+TransformationEvent -->  Quantity : gs1-epcis:inputQuantity, gs1-epcis:outputQuantity
 
-Quantity --> Epc : epc
+Quantity --> Product : gs1-epcis:epc
 
 ObjectEvent -up-> Event : rdfs:subClassOf
 AggregationEvent -up-> Event : rdfs:subClassOf
@@ -154,6 +150,23 @@ class CertificateGrant {
     a           fsm:CertificateGrant
 }
 
+class Certificate {
+    a                           fsm:Certificate
+    fsm:forProductsWithGpc      xsd:string     
+}
+
+class GlobalProductClassification {
+    a                       skos:Concept
+    skos:conceptScheme      <taxonomy/global_product_classification>
+    skos:prefLabel          string
+    skos:description        string
+    fsm:id                  string
+}
+
+class ProductBatch {
+    a                       fsm:ProductBatch
+}
+
 Producer --> Supplier : rdfs:subClassOf
 Manufacturer --> Supplier : rdfs:subClassOf
 FoodProcessor --> Supplier : rdfs:subClassOf
@@ -168,8 +181,14 @@ LabTest --> ObjectEvent : rdfs:subClassOf
 Audit --> ObjectEvent : rdfs:subClassOf
 CertificateGrant --> ObjectEvent : rdfs:subClassOf
 
-Product -up-> Epc : rdfs:subClassOf
-Result -up-> Epc : rdfs:subClassOf
+Certificate -up-> Product : rdfs:subClassOf
+Product --> GlobalProductClassification : fsm:gpcCategoryCode
 
+ProductBatch -up-> Product : fsm:product, rdfs:subClassOf
+
+
+class Distributor {
+    a           fsm:Distributor
+}
 
 @enduml

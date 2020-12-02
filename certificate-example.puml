@@ -1,0 +1,36 @@
+@startuml
+class CertificateGrant1 {
+    a                                 fsm:CertificateGrant
+    gs1-epcis:eventTime               "09-05-2012"^^xsd:dateTime
+    gs1-epcis:recordTime              "02-12-2020"xsd:dateTime
+    gs1-epcis:eventTimeZoneOffset     "00"
+    gs1-epcis:eventID                 "certificate_grant1"
+    gs1-epcis:action                  <taxonomy/action_type/observe>
+    gs1-epcis:businessStep            urn:epcglobal:cbv:bizstep:receiving
+    gs1-epcis:disposition             urn:epcglobal:cbv:disp:active 
+}
+
+class Organization1 {
+    a                       gs1:Organization
+    gs1:organizationName    "Charlottetown Metal Products"
+}
+
+
+class NSFInternationalStrategicRegistrations {
+    a                       fsm:CertificationBody
+    gs1:organizationName    "NSF International Strategic Registrations"
+}
+
+class ISO22000_Certificate {
+    a                           fsm:Certificate
+    gs1:linkType                https://certifications.thomasnet.com/certifications/glossary/quality-certifications/iso/iso-22000-2005/ 
+    gs1:expirationDate          "08-05-2015"^^xsd:date
+}
+
+CertificateGrant1 --> Organization1 : gs1-epcis:destination
+CertificateGrant1 --> NSFInternationalStrategicRegistrations : gs1-epcis:source
+CertificateGrant1 --> ISO22000_Certificate : epc
+
+
+
+@enduml
