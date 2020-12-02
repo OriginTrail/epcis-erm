@@ -128,7 +128,7 @@ A TransformationEvent captures information about an event in which one or more p
 
 
 # Certification
-
+TODO: we need certification classification
 In order to express certification of producers, food processors and other parties involved in the supply chain we need to handle two generic cases.
 1. Organization level certification
 ![](certificate-example.svg)
