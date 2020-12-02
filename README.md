@@ -11,6 +11,71 @@ In the sections below we will try to illustrate a model for representing EPCIS d
 
 The diagrams are generated using _rdfpuml_ available [here](https://github.com/nikolatulechki/rdf2rml)  
 
+
+# The FSM model
+![](model.svg)
+
+The model for the project is an extension of the EPCIS model.
+## Certification
+TODO: we need certification classification
+
+In order to express certification of producers, food processors and other parties involved in the supply chain we need to handle two generic cases.
+1. Organization level certification
+![](certificate-example.svg)
+
+In this example we are expressing an ISO 22000:2005 certificate. 
+
+We treat the certificate as a product of the Certification Body. The certification body gives the 
+certificate to the Organization
+
+
+2. Product level certification
+![](certificate-product-example.svg)
+
+In this example we are expressing a Halal certificate. These certificates are provided
+only for some products provided by a country.
+
+We treat the certification grant in the same manner as the above example.
+
+The new thing is that the certificate node links
+to a product. This product is a GTIN prefix for a company product. All batches of this product will be linked to it with the fsm:product link.
+
+# Use cases
+## Broilers example
+We took the use case regarding the life cycle of broilers and their supply chain.
+In the diagram we can see the different organizations and their interaction in the process of making broiler meat for consumers.
+
+![](broilers/source.png)
+
+
+Now we are applying the GS1 EPCIS standart to the 
+use case. 
+We represent any movements of products and consuming of such in the case of feeding as an event.
+* We have 6 Trasportation events which reflect the main stream from the from the presentation. These events are of type observation. We assume that with a single event we can capture the transition of the product from one organization to another. We could think of the event as the place in time which the product is received in the second organization. We omit and in fact infer the event that a product has been sent by the first organization.
+* We add additional events for laying an egg, hatching an egg, slaugthering a broiler and packaging the meat. These events are of type Transformation. We are assuming that one or more products is consumed in order to produce another product. In the case of laying an egg the transformation gets as input the broiler and outputs the same broiler and the egg. For the other cases the logic is similar.
+
+We assume that every broiler, packaged food, 
+broiler egg, broiler meat and broiler packaged meat is uniquely idetified. The model currently is not complicated with the logic of handling aggregated packages of broilers and etc.
+
+![](broilers/broilers-example.png)
+
+
+The above diagrame shows the model of the main flow of the products. We will add additional diagrams dispalying the secondary relations between the organizations.
+
+The feeding of the broilers is important in order to keep track on how they have been raised and the quality of the meat. The feeding is relevat to Broiler Parent Breeders and Broiler Farms.
+The process of feeding is captured in two events:
+* Buying of food - the point in time when a batch of food is being received in a farm or breeder organization. The food has its unique identifier 
+signifying exactly which food package we refer to.
+* The feeding itself - the point in time when a
+broiler is fed with a particular package of food. 
+
+![](broilers/broiler-feeding.png)
+
+
+The import and export of broiler is represented in the diagram below. A import or export is a single event. The event is the point in time when the product reaches the destination organization.
+![](broilers/broiler-export-import.png)
+
+
 # The EPCIS model
 
 ![](model.png)
@@ -126,63 +191,5 @@ A TransformationEvent captures information about an event in which one or more p
 | destinationList | List<Destination> | (Optional) An unordered list of Destination elements (Section 7.3.5.4) that provide context about the terminating endpoint of a business transfer of which this event is a part. |
 | ilmd | ILMD | (Optional) Instance/Lot master data (Section 7.3.6) that describes the output objects created during this event. |
 
-
-# Certification
-TODO: we need certification classification
-
-In order to express certification of producers, food processors and other parties involved in the supply chain we need to handle two generic cases.
-1. Organization level certification
-![](certificate-example.svg)
-
-In this example we are expressing an ISO 22000:2005 certificate. 
-
-We treat the certificate as a product of the Certification Body. The certification body gives the 
-certificate to the Organization
-
-
-2. Product level certification
-![](certificate-product-example.svg)
-
-In this example we are expressing a Halal certificate. These certificates are provided
-only for some products provided by a country.
-
-We treat the certification grant in the same manner as the above example.
-
-The new thing is that the certificate node links
-to a product. This product is a GTIN prefix for a company product. All batches of this product will be linked to it with the fsm:product link.
-
-# Broilers example
-We took the use case regarding the life cycle of broilers and their supply chain.
-In the diagram we can see the different organizations and their interaction in the process of making broiler meat for consumers.
-
-![](broilers/source.png)
-
-
-Now we are applying the GS1 EPCIS standart to the 
-use case. 
-We represent any movements of products and consuming of such in the case of feeding as an event.
-* We have 6 Trasportation events which reflect the main stream from the from the presentation. These events are of type observation. We assume that with a single event we can capture the transition of the product from one organization to another. We could think of the event as the place in time which the product is received in the second organization. We omit and in fact infer the event that a product has been sent by the first organization.
-* We add additional events for laying an egg, hatching an egg, slaugthering a broiler and packaging the meat. These events are of type Transformation. We are assuming that one or more products is consumed in order to produce another product. In the case of laying an egg the transformation gets as input the broiler and outputs the same broiler and the egg. For the other cases the logic is similar.
-
-We assume that every broiler, packaged food, 
-broiler egg, broiler meat and broiler packaged meat is uniquely idetified. The model currently is not complicated with the logic of handling aggregated packages of broilers and etc.
-
-![](broilers/broilers-example.png)
-
-
-The above diagrame shows the model of the main flow of the products. We will add additional diagrams dispalying the secondary relations between the organizations.
-
-The feeding of the broilers is important in order to keep track on how they have been raised and the quality of the meat. The feeding is relevat to Broiler Parent Breeders and Broiler Farms.
-The process of feeding is captured in two events:
-* Buying of food - the point in time when a batch of food is being received in a farm or breeder organization. The food has its unique identifier 
-signifying exactly which food package we refer to.
-* The feeding itself - the point in time when a
-broiler is fed with a particular package of food. 
-
-![](broilers/broiler-feeding.png)
-
-
-The import and export of broiler is represented in the diagram below. A import or export is a single event. The event is the point in time when the product reaches the destination organization.
-![](broilers/broiler-export-import.png)
 
 
