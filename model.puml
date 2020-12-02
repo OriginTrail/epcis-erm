@@ -170,6 +170,7 @@ class ProductBatch {
 Producer --> Supplier : rdfs:subClassOf
 Manufacturer --> Supplier : rdfs:subClassOf
 FoodProcessor --> Supplier : rdfs:subClassOf
+Distributor --> Supplier : rdfs:subClassOf
 Supplier --> Organization : rdfs:subClassOf
 Retailer --> Organization : rdfs:subClassOf
 CertificationBody --> Organization : rdfs:subClassOf
