@@ -154,8 +154,8 @@ class Certificate {
     a                           fsm:Certificate
 }
 
-class Report {
-    a                           fsm:Report
+class Document {
+    a                           fsm:Document
 }
 
 class GlobalProductClassification {
@@ -186,7 +186,7 @@ Audit --> ObjectEvent : rdfs:subClassOf
 CertificateGrant --> ObjectEvent : rdfs:subClassOf
 
 Certificate -up-> Product : rdfs:subClassOf, fsm:product
-Report -up-> Product : rdfs:subClassOf, fsm:product
+Document -up-> Product : rdfs:subClassOf, fsm:product
 Product --> GlobalProductClassification : fsm:gpcCategoryCode
 
 ProductBatch -up-> Product : fsm:product, rdfs:subClassOf
