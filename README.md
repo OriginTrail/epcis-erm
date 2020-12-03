@@ -33,12 +33,72 @@ certificate to the Organization
 ![](certificate-product-example.svg)
 
 In this example we are expressing a Halal certificate. These certificates are provided
-only for some products provided by a country.
+only for some products provided by a company.
 
 We treat the certification grant in the same manner as the above example.
 
 The new thing is that the certificate node links
 to a product. This product is a GTIN prefix for a company product. All batches of this product will be linked to it with the fsm:product link.
+
+## Document
+The documents are represented in a similar manner as the certifications. 
+We treat as documents these classes:
+* Incidents
+* Audits
+* Inspection
+* Lab tests
+
+They can be expressed using the same logic.
+
+In this example we will use an incident from the FOODAKAI API.
+```
+"id":"FDK_18341544",
+'                 "title":"Other hazard in ready to eat - cook meals by «  1001 France » from France",
+'                 "description":"Date : 29 NOVEMBRE 2020\r\nINFORMATION CONSOMMATEURS\r\nRAPPEL DE PRODUIT\r\nLa Société «  1001 FRANCE » procède aujourd’hui au retrait de la vente de sa \r\nrecette « Mon mijoté de courges butternut et bœuf »  suite à la mise en évidence de \r\npossibles morceaux de graines de courges dans le produit.\r\nIl s’agit des lots portant les caractéristiques suivantes : \r\nNature du Produit   :  Repas complet pour bébé\r\nMarque : HAPPYLAL BABY\r\nGENCOD : 3770007731081\r\nFORMAT   :   220 grammes\r\nDLC   :  15/03/2021 (LOT : MEL46V11) et 09/05/2021(LOT : MEL02B06)\r\nCode emballeur/Estampille Sanitaire   (ou numéro de lot) :  FR 29.174.020 CE\r\nL’ensemble des lots sont retirés de la commercialisation.\r\nCertains de ces produits ont cependant été commercialisés avant la mesure de \r\nretrait.\r\nIl est donc recommandé aux personnes qui détiendraient des produits appartenant aux \r\nlots  décrits  ci-dessus  de ne pas les  consommer et  de les  détruire  ou  de les \r\nrapporter au point de vente.  \r\nLa société « 1001 FRANCE » se tient à la disposition des consommateurs pour \r\nrépondre à leurs questions au numéro de téléphone : « 06 62 26 38 63 ».\r\nAfficher jusqu’au 29 décembre 2020",
+'                 "entityType":"incident",
+'                 "createdOn":"2020-11-29T00:00:00",
+'                 "updatedOn":"2020-11-30T14:05:06.916673",
+'                 "dataSource":"FOODAKAI",
+'                 "tags":[
+'                    "france",
+'                    "ready to eat - cook meals",
+'                    "other hazard",
+'                    "prepared dishes and snacks",
+'                    "europe"
+'                 ],
+'                 "published":true,
+'                 "privateData":0,
+'                 "linkedEntities":[
+'                    {
+'                       "id":"FDK_18341542",
+'                       "title":"«  1001 France »",
+'                       "description":"",
+'                       "entityType":"supplier",
+'                       "createdOn":"2020-11-30T14:05:06.916704",
+'                       "updatedOn":"2020-11-30T14:05:06.916707",
+'                       "dataSource":"FOODAKAI",
+'                       "tags":[
+                         
+'                       ],
+'                       "published":true,
+'                       "privateData":0,
+'                       "linkedEntities":[
+                         
+'                       ],
+'                       "internalId":null
+'                    }
+'                 ],
+'                 "internalId":"18341544"
+'              },
+```
+
+The example:
+![](document-example.svg)
+
+We treat the FOODAKAI as the source organization of the event as such information is not provided in by FOODAKAI and no one outside Agroknow is able to validate it. 
+The example incident has structured information only for the organization which supplied the food product that has lead to the incident. 
+In the FSM Platform we would like to be able to identify a product or a batch of product.
+In order to accomodate for such granularity we use the `fsm:product` relation to a product.
 
 # Use cases
 ## Broilers example
