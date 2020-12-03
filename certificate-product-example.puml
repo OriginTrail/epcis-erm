@@ -1,0 +1,48 @@
+@startuml
+class CertificateGrant1 {
+    a                                 fsm:CertificateGrant
+    gs1-epcis:eventTime               "22-08-2019"^^xsd:dateTime
+    gs1-epcis:recordTime              "02-12-2020"xsd:dateTime
+    gs1-epcis:eventTimeZoneOffset     "00"
+    gs1-epcis:eventID                 "certificate_grant2"
+    gs1-epcis:action                  <taxonomy/action_type/observe>
+    gs1-epcis:businessStep            urn:epcglobal:cbv:bizstep:receiving
+    gs1-epcis:disposition             urn:epcglobal:cbv:disp:active 
+}
+
+class Organization1 {
+    a                       gs1:Organization
+    gs1:organizationName    "NSE Products, Inc."
+}
+
+
+class TheIslamicFoodAndNutritionCouncilOfAmerica {
+    a                       fsm:CertificationBody
+    gs1:organizationName    "The Islamic Food And Nutrition Council Of America"
+}
+
+class Halal_Certificate {
+    a                           fsm:Certificate
+    gs1:linkType                https://www.nuskin.com/content/nuskin/en_MY/products/nu_skin/halal_certificate/_jcr_content/bodyContent/image_fef8.img.jpg/16eb5681485-cache.jpg 
+    gs1:expirationDate          "31-03-2021"^^xsd:date
+}
+
+class gtin/37003902 {
+    "https://id.gs1.org/gtin/37003902"
+    a                       gs1:Products
+    gs1:productName         "ageLoc Body Shaping Gel"
+}
+
+class gtin/37003902/lot/1 {
+    a                       fsm:Batch
+    gs1:productName         "ageLoc Body Shaping Gel"
+    gs1:hasBatchLotNumber   "1"
+}
+
+CertificateGrant1 --> Organization1 : gs1-epcis:destination
+CertificateGrant1 --> TheIslamicFoodAndNutritionCouncilOfAmerica : gs1-epcis:source
+CertificateGrant1 --> Halal_Certificate : epc
+Halal_Certificate --> "gtin/37003902" : fsm:product
+"gtin/37003902/lot/1" -up-> "gtin/37003902" : fsm:product
+
+@enduml

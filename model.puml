@@ -26,7 +26,10 @@ class TransformationEvent {
 }
 
 class Product {
-    a   gs1:Product
+    a                           gs1:Product
+    gs1:gpcCategoryCode         xsd:string
+    gs1:linkType                xsd:anyURI
+    fsm:Organization            Organization
     https://www.gs1.org/voc/Product
 }
 
@@ -74,35 +77,119 @@ class Quantity {
 }
 
 
-Event -up-> ActionType : action
-Event -up-> BusinessStep : businessStep
-Event -up-> Disposition : disposition
-Event -up-> Place : readPoint
-Event -up-> Place : businessLocation
-Event -up->  Organization : source                  
-Event -up->  Organization : destination
-Event -up->  Transaction : businessTransaction
+Event -up-> ActionType : gs1-epcis:action
+Event -up-> BusinessStep : gs1-epcis:businessStep
+Event -up-> Disposition : gs1-epcis:disposition
+Event -up-> Place : gs1-epcis:readPoint, gs1-epcis:businessLocation
+Event -up->  Organization : gs1-epcis:source, gs1-epcis:destination                  
+Event -up->  Transaction : gs1-epcis:businessTransaction
 
-ObjectEvent -->  Product : epc
+ObjectEvent -->  Product : gs1-epcis:epc
 
-AggregationEvent -->  Product : childEpc
-AggregationEvent -->  Product : parent
-TransactionEvent -->  Quantity : childQuantity
+AggregationEvent -->  Product : gs1-epcis:parent, gs1-epcis:childEpc
+AggregationEvent -->  Quantity : gs1-epcis:childQuantity
 
-TransactionEvent -->  Product : epc
-TransactionEvent -->  Product : parent
-TransactionEvent -->  Quantity : quantity
+TransactionEvent -->  Product : gs1-epcis:epc, gs1-epcis:parent
+TransactionEvent -->  Quantity : gs1-epcis:quantity
 
-TransformationEvent -->  Product : inputEpc
-TransformationEvent -->  Product : outputEpc
-TransformationEvent -->  Product : parent
-TransformationEvent -->  Quantity : inputQuantity
-TransformationEvent -->  Quantity : outputQuantity
+TransformationEvent -->  Product : gs1-epcis:inputEpc, gs1-epcis:outputEpc, gs1-epcis:parent
+TransformationEvent -->  Quantity : gs1-epcis:inputQuantity, gs1-epcis:outputQuantity
 
-Quantity --> Product : epc
+Quantity --> Product : gs1-epcis:epc
 
 ObjectEvent -up-> Event : rdfs:subClassOf
 AggregationEvent -up-> Event : rdfs:subClassOf
 TransactionEvent -up-> Event : rdfs:subClassOf
 TransformationEvent -up-> Event : rdfs:subClassOf
+
+class Retailer {
+    a           fsm:Retailer
+}
+
+class Producer {
+    a           fsm:Producer
+}
+
+class Manufacturer {
+    a           fsm:Manufacturer
+}
+
+class FoodProcessor {
+    a           fsm:FoodProcessor
+}
+
+class CertificationBody {
+    a           fsm:CertificationBody
+}
+
+class CertificationSchemaOwner {
+    a           fsm:CertificationSchemaOwner
+}
+
+class Supplier {
+    a           fsm:Supplier
+}
+
+class Incident {
+    a           fsm:Incident
+}
+
+class Inspection {
+    a           fsm:Inspection
+}
+
+class LabTest {
+    a           fsm:LabTest
+}
+
+class Audit {
+    a           fsm:Audit
+}
+
+class CertificateGrant {
+    a           fsm:CertificateGrant
+}
+
+class Certificate {
+    a                           fsm:Certificate
+    fsm:forProductsWithGpc      xsd:string     
+}
+
+class GlobalProductClassification {
+    a                       skos:Concept
+    skos:conceptScheme      <taxonomy/global_product_classification>
+    skos:prefLabel          string
+    skos:description        string
+    fsm:id                  string
+}
+
+class ProductBatch {
+    a                       fsm:ProductBatch
+}
+
+Producer --> Supplier : rdfs:subClassOf
+Manufacturer --> Supplier : rdfs:subClassOf
+FoodProcessor --> Supplier : rdfs:subClassOf
+Distributor --> Supplier : rdfs:subClassOf
+Supplier --> Organization : rdfs:subClassOf
+Retailer --> Organization : rdfs:subClassOf
+CertificationBody --> Organization : rdfs:subClassOf
+CertificationSchemaOwner --> Organization : rdfs:subClassOf
+
+Incident --> ObjectEvent : rdfs:subClassOf
+Inspection --> ObjectEvent : rdfs:subClassOf
+LabTest --> ObjectEvent : rdfs:subClassOf
+Audit --> ObjectEvent : rdfs:subClassOf
+CertificateGrant --> ObjectEvent : rdfs:subClassOf
+
+Certificate -up-> Product : rdfs:subClassOf
+Product --> GlobalProductClassification : fsm:gpcCategoryCode
+
+ProductBatch -up-> Product : fsm:product, rdfs:subClassOf
+
+
+class Distributor {
+    a           fsm:Distributor
+}
+
 @enduml
