@@ -1,6 +1,6 @@
 @startuml
 class Incident {
-    a                                 fsm:CertificateGrant
+    a                                 fsm:Incident
     gs1-epcis:eventTime               "2020-11-29"^^xsd:dateTime
     gs1-epcis:recordTime              "2020-12-03T00:00:00"^^xsd:dateTime
     gs1-epcis:eventTimeZoneOffset     "00"
@@ -22,7 +22,7 @@ class FOODAKAI {
 }
 
 class IncidentReport {
-    a                           fsm:Incident
+    a                           fsm:Report
     gs1:linkType                "http://link-to-reuslt?" 
 }
 
