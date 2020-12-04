@@ -101,6 +101,58 @@ In the FSM Platform we would like to be able to identify a product or a batch of
 In order to accomodate for such granularity we use the `fsm:product` relation to a product.
 
 # Use cases
+We use these requirements:
+1. Browse information
+2. list of the Certification Bodies and Certification Schema owners that the supplier (producer, processor) is working with. 
+3. able to perform a remote supplier verification using critical information like incidents, inspection results, certificates and lab tests
+4. able to perform a supplier risk assessment in order to prioritise the audits and lab tests
+5. Be able to access fully traced information
+6. Be able to access information regarding findings of the inspection of suppliers in the food chain
+7. Be able to access current status of food supply actors, as far as audit results of certify organizations are concerned
+8. Have access to innovative tools
+
+
+How we cover the above requirements:
+1. Based on the FSM model we can browse organizations, products, product batches.
+These organizations can be Retailers, Suppliers, Certification bodies etc. 
+We can query the database for Events regarding these objects.
+The events can be transactions between organizations, transformations of a products to a new product,
+ certification grants, lab tests etc.
+2. Certification bodies can be listed by querying for objects of type `fsm:CertificationBody`
+3. We can query directly inspection results, certificates and lab tests relating to a organization.
+This can be done using the event objects `fsm:Inspection`, `fsm:CertificateGrant`, `fsm:LabTest`, `fsm:Audit` respectively.
+The incidents are usually harder to trace back. Based on the presumption that we have the full supply chain data
+we can query the graph for all the events and parties involved with this product.
+The entry point for such an analysis should be the `fsm:Incident` object.
+4. This functionality should be extracted from the raw data within the FSM model.
+It should be part of down-stream processing.
+5. As per 3. we can fully trace a product batch through the supply chain as long as we have the full data for it.
+6. This is part of 3. browsing inspection results should give you the access to view the information within the system.
+7. Current state should be logically aggregated based on historical event data. 
+All the data will be within the system and will be queryable.
+Question like: How long results of Insepction/Audit are relevant after their release?
+8. This should be part of another layer above the database.
+## The retailer (Agroknow)
+
+## Food authority
+
+## Certification Body && The Certification Body for Organic PDO Wine Production (Valoritalia)
+An example to the use cases involvind certifications can be seen below.
+
+![](certification-use-case/certification-use-case.svg)
+
+The organization `BroilerFarm` has Halal certificate for  broilers. 
+The `Broiler2` is a product batch for broiler.
+Based on the hatching of the broiler and the time of its slaughter we can deduce wether the certificate is
+relevant to this exact broiler batch.
+For the example we assume that the hatching of the broiler is 
+after the Halal certificate grant.
+We can see that the transportation of the broiler to the
+slaughterhouse is prior to the expiration of the
+Halal certificate. 
+Thus we infer that the broiler batch is under halal certification.
+ 
+
 ## Broilers example
 We took the use case regarding the life cycle of broilers and their supply chain.
 In the diagram we can see the different organizations and their interaction in the process of making broiler meat for consumers.

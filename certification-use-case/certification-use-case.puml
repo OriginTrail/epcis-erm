@@ -1,0 +1,125 @@
+@startuml
+class Broiler {
+    "gtin/1111111111111"
+    a                       gs1:Product
+    gs1:productName         "Broiler"
+    gs1:hasBatchLotNumber   "1"
+}
+
+class Broiler2 {
+    "gtin/1111111111111/lot/1"
+    a                       fsm:Batch
+    gs1:productName         "Broiler"
+    gs1:hasBatchLotNumber   "1"
+}
+
+
+class BroilerMeat {
+    a                   gs1:Product
+    gs1:productName     "Broiler meat"
+}
+
+class BroilerPackagedMeat {
+    a                   gs1:Product
+    gs1:productName     "Broiler packaged meat"
+}
+
+
+class BroilerFarm {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class SlaughterHouse {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class Processor {
+    a                       gs1:Organization
+    gs1:organizationName    "HatchingFirm A"
+}
+
+class Slaughter {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "Killing a broiler" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class Packaging {
+    a                       gs1-epcis:TransformationEvent
+    eventTime               "2020-05-02T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "Packaging the meat" 
+    bizStep                 urn:epcglobal:cbv:bizstep:creating_class_instance
+}
+
+class TransportEvent4 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-21-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "4" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+class TransportEvent5 {
+    a                       gs1-epcis:ObjectEvent
+    eventTime               "2020-28-01T09:00:00"
+    recordTime              "2020-11-09T09:00:00"
+    eventTimeZoneOffset     "+02"
+    eventID                 "5" 
+    bizStep                 urn:epcglobal:cbv:bizstep:receiving 
+}
+
+TransportEvent4 --> BroilerFarm : source
+TransportEvent4 --> SlaughterHouse : destination
+TransportEvent4 -up-> Broiler2 : epc
+
+Slaughter --> SlaughterHouse : source, destination
+Slaughter --> Broiler2 : inputEpc
+Slaughter --> BroilerMeat : outputEpc
+
+TransportEvent5 --> SlaughterHouse : source
+TransportEvent5 --> Processor : destination
+TransportEvent5 -up-> BroilerMeat : epc
+
+Packaging --> Processor : source, destination
+Packaging --> BroilerMeat : inputEpc
+Packaging --> BroilerPackagedMeat : outputEpc
+
+class CertificateGrant1 {
+    a                                 fsm:CertificateGrant
+    gs1-epcis:eventTime               "2019-08-22"^^xsd:dateTime
+    gs1-epcis:recordTime              "2020-12-02"xsd:dateTime
+    gs1-epcis:eventTimeZoneOffset     "00"
+    gs1-epcis:eventID                 "certificate_grant2"
+    gs1-epcis:action                  <taxonomy/action_type/observe>
+    gs1-epcis:businessStep            urn:epcglobal:cbv:bizstep:receiving
+    gs1-epcis:disposition             urn:epcglobal:cbv:disp:active 
+}
+
+class TheIslamicFoodAndNutritionCouncilOfAmerica {
+    a                       fsm:CertificationBody
+    gs1:organizationName    "The Islamic Food And Nutrition Council Of America"
+}
+
+class Halal_Certificate {
+    a                           fsm:Certificate
+    gs1:linkType                https://www.nuskin.com/content/nuskin/en_MY/products/nu_skin/halal_certificate/_jcr_content/bodyContent/image_fef8.img.jpg/16eb5681485-cache.jpg 
+    gs1:expirationDate          "2021-03-31"^^xsd:date
+}
+
+
+CertificateGrant1 -up-> BroilerFarm : gs1-epcis:destination
+CertificateGrant1 --> TheIslamicFoodAndNutritionCouncilOfAmerica : gs1-epcis:source
+CertificateGrant1 --> Halal_Certificate : epc
+Halal_Certificate -up-> Broiler : fsm:product
+Broiler2 --> Broiler : fsm:product
+Broiler2 -[dashed]-> Halal_Certificate : fsm:certificate
+
+@enduml
