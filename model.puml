@@ -152,7 +152,10 @@ class CertificateGrant {
 
 class Certificate {
     a                           fsm:Certificate
-    fsm:forProductsWithGpc      xsd:string     
+}
+
+class Document {
+    a                           fsm:Document
 }
 
 class GlobalProductClassification {
@@ -182,7 +185,8 @@ LabTest --> ObjectEvent : rdfs:subClassOf
 Audit --> ObjectEvent : rdfs:subClassOf
 CertificateGrant --> ObjectEvent : rdfs:subClassOf
 
-Certificate -up-> Product : rdfs:subClassOf
+Certificate -up-> Product : rdfs:subClassOf, fsm:product
+Document -up-> Product : rdfs:subClassOf, fsm:product
 Product --> GlobalProductClassification : fsm:gpcCategoryCode
 
 ProductBatch -up-> Product : fsm:product, rdfs:subClassOf

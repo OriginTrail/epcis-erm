@@ -1,0 +1,39 @@
+@startuml
+class Incident {
+    a                                 fsm:Incident
+    gs1-epcis:eventTime               "2020-11-29"^^xsd:dateTime
+    gs1-epcis:recordTime              "2020-12-03T00:00:00"^^xsd:dateTime
+    gs1-epcis:eventTimeZoneOffset     "00"
+    gs1-epcis:eventID                 "incident1"
+    gs1-epcis:action                  <taxonomy/action_type/observe>
+    gs1-epcis:businessStep            urn:epcglobal:cbv:bizstep:receiving
+    gs1-epcis:disposition             urn:epcglobal:cbv:disp:active 
+}
+
+class FDK_18341542 {
+    a                       gs1:Organization
+    gs1:organizationName    "«  1001 France »"
+}
+
+
+class FOODAKAI {
+    a                       gs1:Organization
+    gs1:organizationName    "FOODAKAI"
+}
+
+class IncidentReport {
+    a                           fsm:Document
+    gs1:linkType                "http://link-to-reuslt?" 
+}
+
+class ProductBatch {
+    a                           fsm:ProductBatch
+    fsm:product                 "If it had a batch"
+}
+
+Incident --> FDK_18341542 : gs1-epcis:destination
+Incident --> FOODAKAI : gs1-epcis:source
+Incident --> IncidentReport : epc
+IncidentReport --> ProductBatch : fsm:product
+
+@enduml

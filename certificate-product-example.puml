@@ -1,8 +1,8 @@
 @startuml
 class CertificateGrant1 {
     a                                 fsm:CertificateGrant
-    gs1-epcis:eventTime               "22-08-2019"^^xsd:dateTime
-    gs1-epcis:recordTime              "02-12-2020"xsd:dateTime
+    gs1-epcis:eventTime               "2019-08-22"^^xsd:dateTime
+    gs1-epcis:recordTime              "2020-12-02"xsd:dateTime
     gs1-epcis:eventTimeZoneOffset     "00"
     gs1-epcis:eventID                 "certificate_grant2"
     gs1-epcis:action                  <taxonomy/action_type/observe>
@@ -24,7 +24,7 @@ class TheIslamicFoodAndNutritionCouncilOfAmerica {
 class Halal_Certificate {
     a                           fsm:Certificate
     gs1:linkType                https://www.nuskin.com/content/nuskin/en_MY/products/nu_skin/halal_certificate/_jcr_content/bodyContent/image_fef8.img.jpg/16eb5681485-cache.jpg 
-    gs1:expirationDate          "31-03-2021"^^xsd:date
+    gs1:expirationDate          "2021-03-31"^^xsd:date
 }
 
 class gtin/37003902 {
