@@ -7,7 +7,7 @@ class ProductBatch--><rect codeLine="28" fill="#FEFECE" filter="url(#f3l2rwdt3va
 link Incident to FDK_18341542--><path codeLine="33" d="M305.228,157.176 C267.652,182.452 227.148,209.697 195.357,231.082 " fill="none" id="Incident-to-FDK_18341542" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="191.129,233.926,200.8294,232.2227,195.278,231.1357,196.365,225.5843,191.129,233.926" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="137" x="261.5" y="200.0669">gs1-epcis:destination</text><!--MD5=[a56f6b842dfbfc5a8ed9c49f2f8e595c]
 link Incident to FOODAKAI--><path codeLine="34" d="M415.5,157.176 C415.5,181.523 415.5,207.698 415.5,228.702 " fill="none" id="Incident-to-FOODAKAI" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="415.5,233.926,419.5,224.926,415.5,228.926,411.5,224.926,415.5,233.926" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="416.5" y="200.0669">gs1-epcis:source</text><!--MD5=[81a91caf1d74c10f17c9425f3a296be4]
 link Incident to IncidentReport--><path codeLine="35" d="M526.566,157.176 C564.412,182.452 605.207,209.697 637.227,231.082 " fill="none" id="Incident-to-IncidentReport" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="641.485,233.926,636.2233,225.6005,637.3274,231.1485,631.7793,232.2527,641.485,233.926" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="589.5" y="200.0669">epc</text><!--MD5=[3444c625d71f46f8c28a049a1f5fa17f]
-link IncidentReport to ProductBatch--><path codeLine="36" d="M695.5,308.069 C695.5,329.688 695.5,357.253 695.5,379.7374 " fill="none" id="IncidentReport-to-ProductBatch" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="695.5,384.747,699.5,375.747,695.5,379.747,691.5,375.747,695.5,384.747" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="696.5" y="351.0669">fsm:product</text><!--MD5=[dbf5f5a73c0b5950a4d2eb35ad3cad4b]
+link IncidentReport to ProductBatch--><path codeLine="36" d="M695.5,308.069 C695.5,329.688 695.5,357.253 695.5,379.7374 " fill="none" id="IncidentReport-to-ProductBatch" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="695.5,384.747,699.5,375.747,695.5,379.747,691.5,375.747,695.5,384.747" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="696.5" y="351.0669">fsm:product</text><!--MD5=[15bb5bd3fe0c040aa32e119de658b3dc]
 @startuml
 class Incident {
     a                                 fsm:Incident
@@ -47,7 +47,7 @@ Incident - -> IncidentReport : epc
 IncidentReport - -> ProductBatch : fsm:product
 @enduml
 
-PlantUML version 1.2020.22beta2(Unknown compile time)
+PlantUML version 1.2020.22(Sun Dec 06 09:36:27 UTC 2020)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM

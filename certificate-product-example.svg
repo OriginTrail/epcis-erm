@@ -9,7 +9,7 @@ link CertificateGrant1 to Organization1--><path codeLine="41" d="M381.68,157.067
 link CertificateGrant1 to TheIslamicFoodAndNutritionCouncilOfAmerica--><path codeLine="42" d="M532.5,157.067 C532.5,183.454 532.5,212.21 532.5,234.836 " fill="none" id="CertificateGrant1-to-TheIslamicFoodAndNutritionCouncilOfAmerica" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="532.5,239.861,536.5,230.861,532.5,234.861,528.5,230.861,532.5,239.861" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="533.5" y="200.0669">gs1-epcis:source</text><!--MD5=[a7a0afdbaa331c215f2f56416f572d52]
 link CertificateGrant1 to Halal_Certificate--><path codeLine="43" d="M729.961,133.079 C851.682,163.949 1006.209,203.139 1122.65,232.671 " fill="none" id="CertificateGrant1-to-Halal_Certificate" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1127.82,233.981,1120.0791,227.8918,1122.9733,232.7522,1118.113,235.6465,1127.82,233.981" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="1005.5" y="200.0669">epc</text><!--MD5=[4ec308bd4eaf036413e50030552e6c34]
 link Halal_Certificate to gtin/37003902--><path codeLine="44" d="M1293.5,320.301 C1293.5,342.301 1293.5,369.257 1293.5,391.918 " fill="none" id="Halal_Certificate-to-gtin/37003902" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1293.5,396.982,1297.5,387.982,1293.5,391.982,1289.5,387.982,1293.5,396.982" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="1294.5" y="363.0669">fsm:product</text><!--MD5=[9d3153d0b1df6608637f932959ced440]
-reverse link gtin/37003902 to gtin/37003902/lot/1--><path codeLine="45" d="M1293.5,488.374 C1293.5,511.071 1293.5,538.024 1293.5,559.9817 " fill="none" id="gtin/37003902-backto-gtin/37003902/lot/1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1293.5,483.301,1289.5,492.301,1293.5,488.301,1297.5,492.301,1293.5,483.301" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="1294.5" y="526.0669">fsm:product</text><!--MD5=[8234b672a00a70d9a90bca79ec36ba2e]
+reverse link gtin/37003902 to gtin/37003902/lot/1--><path codeLine="45" d="M1293.5,488.374 C1293.5,511.071 1293.5,538.024 1293.5,559.9817 " fill="none" id="gtin/37003902-backto-gtin/37003902/lot/1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1293.5,483.301,1289.5,492.301,1293.5,488.301,1297.5,492.301,1293.5,483.301" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="1294.5" y="526.0669">fsm:product</text><!--MD5=[9078f60ebe46e91edc0021169bd3b044]
 @startuml
 class CertificateGrant1 {
     a                                 fsm:CertificateGrant
@@ -58,7 +58,7 @@ Halal_Certificate - -> "gtin/37003902" : fsm:product
 "gtin/37003902/lot/1" -up-> "gtin/37003902" : fsm:product
 @enduml
 
-PlantUML version 1.2020.22beta2(Unknown compile time)
+PlantUML version 1.2020.22(Sun Dec 06 09:36:27 UTC 2020)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
