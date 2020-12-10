@@ -1,9 +1,9 @@
-id: /soml/voc
-label: Ontotext Star Wars Ontology
+id: /soml/gs1-epcis
+label: The FSM Ontology
 creator: http://www.linkedin.com/company/ontotext-ad
 versionInfo: '0.1'
-created: '2020-01-01'
-updated: '2020-04-30'
+created: '2020-12-10'
+updated: '2020-12-10'
 prefixes:
   dct: http://purl.org/dc/terms/
   fsm: https://thefsm.ontotext.com/resource/ontology#
@@ -13,12 +13,88 @@ prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   skos: http://www.w3.org/2004/02/skos/core#
   vann: http://purl.org/vocab/vann/
-  voc: https://swapi.co/vocabulary/
 specialPrefixes:
   ontology_iri: https://thefsm.ontotext.com/epcis#
-  vocab_iri: https://swapi.co/vocabulary/
-  vocab_prefix: voc
+  vocab_prefix: gs1-epcis
+  vocab_iri: https://thefsm.ontotext.com/epcis#
 properties:
+  action:
+    descr: The action type of the event
+    kind: object
+    label: action
+    max: inf
+    range: ActionType
+    rdfProp: gs1-epcis:action
+  businessLocation:
+    descr: The business location of the event
+    kind: object
+    label: businessLocation
+    max: inf
+    range: gs1:Place
+    rdfProp: gs1-epcis:businessLocation
+  businessStep:
+    descr: The business step of the event
+    kind: object
+    label: business step
+    max: inf
+    range: BusinessStep
+    rdfProp: gs1-epcis:businessStep
+  businessTransaction:
+    descr: The business transaction of the event
+    kind: object
+    label: businessTransaction
+    max: inf
+    range: Transaction
+    rdfProp: gs1-epcis:businessTransaction
+  childEpc:
+    descr: childEpc
+    kind: object
+    label: childEpc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:childEpc
+  destination:
+    descr: The destination organization of the event
+    kind: object
+    label: destination
+    max: inf
+    range: gs1:OrganizationInterface
+    rdfProp: gs1-epcis:destination
+  disposition:
+    descr: The disposition of the event
+    kind: object
+    label: disposition
+    max: inf
+    range: Disposition
+    rdfProp: gs1-epcis:disposition
+  epc:
+    descr: epc
+    kind: object
+    label: epc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:epc
+  eventID:
+    descr: The id of the event
+    kind: literal
+    label: eventID
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:eventID
+  eventTime:
+    descr: The time at which the event has occurred
+    kind: literal
+    label: eventTime
+    max: inf
+    range: dateTime
+    rdfProp: gs1-epcis:eventTime
+  eventTimeZoneOffset:
+    descr: The time zone at which the event has occurred
+    kind: literal
+    label: eventTimeZoneOffset
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:eventTimeZoneOffset
   fsm:example:
     descr: example
     kind: literal
@@ -54,174 +130,6 @@ properties:
     max: inf
     range: gs1:ProductInterface
     rdfProp: fsm:product
-  gs1-epcis:action:
-    descr: The action type of the event
-    kind: object
-    label: action
-    max: inf
-    range: gs1-epcis:ActionType
-    rdfProp: gs1-epcis:action
-  gs1-epcis:businessLocation:
-    descr: The business location of the event
-    kind: object
-    label: businessLocation
-    max: inf
-    range: gs1:Place
-    rdfProp: gs1-epcis:businessLocation
-  gs1-epcis:businessStep:
-    descr: The business step of the event
-    kind: object
-    label: business step
-    max: inf
-    range: gs1-epcis:BusinessStep
-    rdfProp: gs1-epcis:businessStep
-  gs1-epcis:businessTransaction:
-    descr: The business transaction of the event
-    kind: object
-    label: businessTransaction
-    max: inf
-    range: gs1-epcis:Transaction
-    rdfProp: gs1-epcis:businessTransaction
-  gs1-epcis:childEpc:
-    descr: childEpc
-    kind: object
-    label: childEpc
-    max: inf
-    range: gs1:ProductInterface
-    rdfProp: gs1-epcis:childEpc
-  gs1-epcis:destination:
-    descr: The destination organization of the event
-    kind: object
-    label: destination
-    max: inf
-    range: gs1:OrganizationInterface
-    rdfProp: gs1-epcis:destination
-  gs1-epcis:disposition:
-    descr: The disposition of the event
-    kind: object
-    label: disposition
-    max: inf
-    range: gs1-epcis:Disposition
-    rdfProp: gs1-epcis:disposition
-  gs1-epcis:epc:
-    descr: epc
-    kind: object
-    label: epc
-    max: inf
-    range: gs1:ProductInterface
-    rdfProp: gs1-epcis:epc
-  gs1-epcis:eventID:
-    descr: The id of the event
-    kind: literal
-    label: eventID
-    max: inf
-    range: string
-    rdfProp: gs1-epcis:eventID
-  gs1-epcis:eventTime:
-    descr: The time at which the event has occurred
-    kind: literal
-    label: eventTime
-    max: inf
-    range: dateTime
-    rdfProp: gs1-epcis:eventTime
-  gs1-epcis:eventTimeZoneOffset:
-    descr: The time zone at which the event has occurred
-    kind: literal
-    label: eventTimeZoneOffset
-    max: inf
-    range: string
-    rdfProp: gs1-epcis:eventTimeZoneOffset
-  gs1-epcis:inputEpc:
-    descr: input epc
-    kind: object
-    label: input epc
-    max: inf
-    range: gs1:ProductInterface
-    rdfProp: gs1-epcis:inputEpc
-  gs1-epcis:inputQuantity:
-    descr: input quantity
-    kind: object
-    label: input quantity
-    max: inf
-    range: gs1:Quantity
-    rdfProp: gs1-epcis:inputQuantity
-  gs1-epcis:outputEpc:
-    descr: output epc
-    kind: object
-    label: output epc
-    max: inf
-    range: gs1:ProductInterface
-    rdfProp: gs1-epcis:outputEpc
-  gs1-epcis:outputQuantity:
-    descr: output quantity
-    kind: object
-    label: output quantity
-    max: inf
-    range: gs1:Quantity
-    rdfProp: gs1-epcis:outputQuantity
-  gs1-epcis:parent:
-    descr: parent
-    kind: object
-    label: parent
-    max: inf
-    range: gs1:ProductInterface
-    rdfProp: gs1-epcis:parent
-  gs1-epcis:quantity:
-    descr: quantity
-    kind: object
-    label: quantity
-    max: inf
-    range: gs1:Quantity
-    rdfProp: gs1-epcis:quantity
-  gs1-epcis:readPoint:
-    descr: The read point of the event
-    kind: object
-    label: read point
-    max: inf
-    range: gs1:Place
-    rdfProp: gs1-epcis:readPoint
-  gs1-epcis:recordTime:
-    descr: The time at which the event has been written to the database
-    kind: literal
-    label: recordTime
-    max: inf
-    range: dateTime
-    rdfProp: gs1-epcis:recordTime
-  gs1-epcis:source:
-    descr: The source organization of the event
-    kind: object
-    label: source
-    max: inf
-    range: gs1:OrganizationInterface
-    rdfProp: gs1-epcis:source
-  gs1-epcis:transactionType:
-    descr: transaction type
-    kind: object
-    label: transaction type
-    max: inf
-    range: gs1-epcis:TransactionType
-    rdfProp: gs1-epcis:transactionType
-  gs1-epcis:transformationID:
-    descr: transformation ID
-    kind: literal
-    label: transformation ID
-    max: inf
-    range: string
-    rdfProp: gs1-epcis:transformationID
-  gs1-epcis:uom:
-    descr: uom
-    kind: literal
-    label: uom
-    max: inf
-    range: string
-    rdfProp: gs1-epcis:uom
-  gs1-epcis:value:
-    descr: value
-    kind: literal
-    label: value
-    max: inf
-    range: double
-    rdfProp: gs1-epcis:value
   gs1:gpcCategoryCode:
     descr: gpc category code (string)
     kind: literal
@@ -236,6 +144,62 @@ properties:
     max: inf
     range: iri
     rdfProp: gs1:linkType
+  inputEpc:
+    descr: input epc
+    kind: object
+    label: input epc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:inputEpc
+  inputQuantity:
+    descr: input quantity
+    kind: object
+    label: input quantity
+    max: inf
+    range: gs1:Quantity
+    rdfProp: gs1-epcis:inputQuantity
+  outputEpc:
+    descr: output epc
+    kind: object
+    label: output epc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:outputEpc
+  outputQuantity:
+    descr: output quantity
+    kind: object
+    label: output quantity
+    max: inf
+    range: gs1:Quantity
+    rdfProp: gs1-epcis:outputQuantity
+  parent:
+    descr: parent
+    kind: object
+    label: parent
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:parent
+  quantity:
+    descr: quantity
+    kind: object
+    label: quantity
+    max: inf
+    range: gs1:Quantity
+    rdfProp: gs1-epcis:quantity
+  readPoint:
+    descr: The read point of the event
+    kind: object
+    label: read point
+    max: inf
+    range: gs1:Place
+    rdfProp: gs1-epcis:readPoint
+  recordTime:
+    descr: The time at which the event has been written to the database
+    kind: literal
+    label: recordTime
+    max: inf
+    range: dateTime
+    rdfProp: gs1-epcis:recordTime
   skos:conceptScheme:
     descr: conceptScheme
     kind: literal
@@ -257,10 +221,141 @@ properties:
     max: inf
     range: string
     rdfProp: skos:prefLabel
+  source:
+    descr: The source organization of the event
+    kind: object
+    label: source
+    max: inf
+    range: gs1:OrganizationInterface
+    rdfProp: gs1-epcis:source
+  transactionType:
+    descr: transaction type
+    kind: object
+    label: transaction type
+    max: inf
+    range: TransactionType
+    rdfProp: gs1-epcis:transactionType
+  transformationID:
+    descr: transformation ID
+    kind: literal
+    label: transformation ID
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:transformationID
+  uom:
+    descr: uom
+    kind: literal
+    label: uom
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:uom
+  value:
+    descr: value
+    kind: literal
+    label: value
+    max: inf
+    range: double
+    rdfProp: gs1-epcis:value
 objects:
+  ActionType:
+    descr: A GS1 ActionType
+    inherits: skos:ConceptInterface
+    label: ActionType
+    props:
+      fsm:example: {}
+    type: gs1-epcis:ActionType
+  AggregationEvent:
+    descr: A GS1 AggregationEvent
+    inherits: EventInterface
+    label: AggregationEvent
+    props:
+      childEpc: {}
+      parent: {}
+    type: gs1-epcis:AggregationEvent
+  BusinessStep:
+    descr: A GS1 BusinessStep
+    inherits: skos:ConceptInterface
+    label: BusinessStep
+    props:
+      fsm:example: {}
+    type: gs1-epcis:BusinessStep
+  Disposition:
+    descr: A GS1 Disposition
+    inherits: skos:ConceptInterface
+    label: Disposition
+    props:
+      fsm:example: {}
+    type: gs1-epcis:Disposition
+  Event:
+    descr: A GS1 Event
+    inherits: EventInterface
+    label: Event
+    type: gs1-epcis:Event
+  EventInterface:
+    descr: Abstract superclass of Event
+    kind: abstract
+    props:
+      action: {}
+      businessLocation: {}
+      businessStep: {}
+      businessTransaction: {}
+      destination: {}
+      disposition: {}
+      eventID: {}
+      eventTime: {}
+      eventTimeZoneOffset: {}
+      readPoint: {}
+      recordTime: {}
+      source: {}
+  ObjectEvent:
+    descr: A GS1 ObjectEvent
+    inherits: ObjectEventInterface
+    label: ObjectEvent
+    type: gs1-epcis:ObjectEvent
+  ObjectEventInterface:
+    descr: Abstract superclass of ObjectEvent
+    inherits: EventInterface
+    kind: abstract
+    props:
+      epc: {}
+  Quantity:
+    descr: A GS1 Quantity
+    label: Quantity
+    props:
+      epc: {}
+      uom: {}
+      value: {}
+    type: gs1-epcis:Quantity
+  Transaction:
+    descr: A GS1 Transaction
+    label: Transaction
+    type: gs1-epcis:Transaction
+  TransactionEvent:
+    descr: A GS1 TransactionEvent
+    inherits: EventInterface
+    label: TransactionEvent
+    props:
+      epc: {}
+      parent: {}
+      quantity: {}
+      transformationID: {}
+    type: gs1-epcis:TransactionEvent
+  TransactionType:
+    type: gs1-epcis:TransactionType
+  TransformationEvent:
+    descr: A GS1 TransformationEvent
+    inherits: EventInterface
+    label: TransformationEvent
+    props:
+      inputEpc: {}
+      inputQuantity: {}
+      outputEpc: {}
+      outputQuantity: {}
+      parent: {}
+    type: gs1-epcis:TransformationEvent
   fsm:Audit:
     descr: A GS1 Audit
-    inherits: gs1-epcis:ObjectEventInterface
+    inherits: ObjectEventInterface
     label: Audit
     type: fsm:Audit
   fsm:Certificate:
@@ -272,7 +367,7 @@ objects:
     type: fsm:Certificate
   fsm:CertificateGrant:
     descr: A GS1 CertificateGrant
-    inherits: gs1-epcis:ObjectEventInterface
+    inherits: ObjectEventInterface
     label: CertificateGrant
     type: fsm:CertificateGrant
   fsm:CertificationBody:
@@ -311,17 +406,17 @@ objects:
     type: fsm:GlobalProductClassification
   fsm:Incident:
     descr: A GS1 Incident
-    inherits: gs1-epcis:ObjectEventInterface
+    inherits: ObjectEventInterface
     label: Incident
     type: fsm:Incident
   fsm:Inspection:
     descr: A GS1 Inspection
-    inherits: gs1-epcis:ObjectEventInterface
+    inherits: ObjectEventInterface
     label: Inspection
     type: fsm:Inspection
   fsm:LabTest:
     descr: A GS1 LabTest
-    inherits: gs1-epcis:ObjectEventInterface
+    inherits: ObjectEventInterface
     label: LabTest
     type: fsm:LabTest
   fsm:Manufacturer:
@@ -355,102 +450,6 @@ objects:
     descr: Abstract superclass of fsm:Supplier
     inherits: gs1:OrganizationInterface
     kind: abstract
-  gs1-epcis:ActionType:
-    descr: A GS1 ActionType
-    inherits: skos:ConceptInterface
-    label: ActionType
-    props:
-      fsm:example: {}
-    type: gs1-epcis:ActionType
-  gs1-epcis:AggregationEvent:
-    descr: A GS1 AggregationEvent
-    inherits: gs1-epcis:EventInterface
-    label: AggregationEvent
-    props:
-      gs1-epcis:childEpc: {}
-      gs1-epcis:parent: {}
-    type: gs1-epcis:AggregationEvent
-  gs1-epcis:BusinessStep:
-    descr: A GS1 BusinessStep
-    inherits: skos:ConceptInterface
-    label: BusinessStep
-    props:
-      fsm:example: {}
-    type: gs1-epcis:BusinessStep
-  gs1-epcis:Disposition:
-    descr: A GS1 Disposition
-    inherits: skos:ConceptInterface
-    label: Disposition
-    props:
-      fsm:example: {}
-    type: gs1-epcis:Disposition
-  gs1-epcis:Event:
-    descr: A GS1 Event
-    inherits: gs1-epcis:EventInterface
-    label: Event
-    type: gs1-epcis:Event
-  gs1-epcis:EventInterface:
-    descr: Abstract superclass of gs1-epcis:Event
-    kind: abstract
-    props:
-      gs1-epcis:action: {}
-      gs1-epcis:businessLocation: {}
-      gs1-epcis:businessStep: {}
-      gs1-epcis:businessTransaction: {}
-      gs1-epcis:destination: {}
-      gs1-epcis:disposition: {}
-      gs1-epcis:eventID: {}
-      gs1-epcis:eventTime: {}
-      gs1-epcis:eventTimeZoneOffset: {}
-      gs1-epcis:readPoint: {}
-      gs1-epcis:recordTime: {}
-      gs1-epcis:source: {}
-  gs1-epcis:ObjectEvent:
-    descr: A GS1 ObjectEvent
-    inherits: gs1-epcis:ObjectEventInterface
-    label: ObjectEvent
-    type: gs1-epcis:ObjectEvent
-  gs1-epcis:ObjectEventInterface:
-    descr: Abstract superclass of gs1-epcis:ObjectEvent
-    inherits: gs1-epcis:EventInterface
-    kind: abstract
-    props:
-      gs1-epcis:epc: {}
-  gs1-epcis:Quantity:
-    descr: A GS1 Quantity
-    label: Quantity
-    props:
-      gs1-epcis:epc: {}
-      gs1-epcis:uom: {}
-      gs1-epcis:value: {}
-    type: gs1-epcis:Quantity
-  gs1-epcis:Transaction:
-    descr: A GS1 Transaction
-    label: Transaction
-    type: gs1-epcis:Transaction
-  gs1-epcis:TransactionEvent:
-    descr: A GS1 TransactionEvent
-    inherits: gs1-epcis:EventInterface
-    label: TransactionEvent
-    props:
-      gs1-epcis:epc: {}
-      gs1-epcis:parent: {}
-      gs1-epcis:quantity: {}
-      gs1-epcis:transformationID: {}
-    type: gs1-epcis:TransactionEvent
-  gs1-epcis:TransactionType:
-    type: gs1-epcis:TransactionType
-  gs1-epcis:TransformationEvent:
-    descr: A GS1 TransformationEvent
-    inherits: gs1-epcis:EventInterface
-    label: TransformationEvent
-    props:
-      gs1-epcis:inputEpc: {}
-      gs1-epcis:inputQuantity: {}
-      gs1-epcis:outputEpc: {}
-      gs1-epcis:outputQuantity: {}
-      gs1-epcis:parent: {}
-    type: gs1-epcis:TransformationEvent
   gs1:Organization:
     descr: A GS1 Organization
     inherits: gs1:OrganizationInterface
@@ -474,9 +473,9 @@ objects:
     props:
       fsm:gpcCategoryCode: {}
       fsm:organization: {}
-      gs1-epcis:transactionType: {}
       gs1:gpcCategoryCode: {}
       gs1:linkType: {}
+      transactionType: {}
   gs1:Quantity:
     type: gs1:Quantity
   skos:Concept:

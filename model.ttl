@@ -9,14 +9,12 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 
 gs1-epcis: a owl:Ontology ;
-  rdfs:label "Ontotext Star Wars Ontology" ;
-  rdfs:comment "An ontology to represent Star Wars data from SWAPI and Wikidata" ;
+  rdfs:label "The FSM Ontology" ;
+  rdfs:comment "An ontology to represent the FSM data" ;
   dct:creator <http://www.linkedin.com/company/ontotext-ad> ;
-  dct:contributor <http://uk.linkedin.com/pub/jem-rayfield/27/b19/757>, <https://www.linkedin.com/in/valexiev> ;
-  dct:created "2020-01-01"^^xsd:date;
-  dct:modified "2020-04-30"^^xsd:date;
-  vann:preferredNamespaceUri "https://swapi.co/vocabulary/";
-  vann:preferredNamespacePrefix "voc";
+  dct:contributor <https://www.linkedin.com/in/plamen-tarkalanov-167aba61/>;
+  dct:created "2020-12-10"^^xsd:date;
+  dct:modified "2020-12-10"^^xsd:date;
   owl:versionInfo "0.1" .
 
 gs1-epcis:Event          
