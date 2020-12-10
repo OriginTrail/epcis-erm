@@ -1,0 +1,612 @@
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix fsm:        <https://thefsm.ontotext.com/resource/ontology#> .
+@prefix gs1-epcis:  <https://thefsm.ontotext.com/epcis#> .
+@prefix gs1:        <http://gs1.org/voc/> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+gs1-epcis: a owl:Ontology ;
+  rdfs:label "Ontotext Star Wars Ontology" ;
+  rdfs:comment "An ontology to represent Star Wars data from SWAPI and Wikidata" ;
+  dct:creator <http://www.linkedin.com/company/ontotext-ad> ;
+  dct:contributor <http://uk.linkedin.com/pub/jem-rayfield/27/b19/757>, <https://www.linkedin.com/in/valexiev> ;
+  dct:created "2020-01-01"^^xsd:date;
+  dct:modified "2020-04-30"^^xsd:date;
+  vann:preferredNamespaceUri "https://swapi.co/vocabulary/";
+  vann:preferredNamespacePrefix "voc";
+  owl:versionInfo "0.1" .
+
+gs1-epcis:Event          
+    a                       rdfs:Class ;
+    rdfs:label              "Event" ;
+    rdfs:comment            "A GS1 Event" .
+
+gs1-epcis:eventTime  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              xsd:dateTime ;
+    rdfs:label              "eventTime" ;
+    rdfs:comment            "The time at which the event has occurred" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:recordTime  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              xsd:dateTime ;
+    rdfs:label              "recordTime" ;
+    rdfs:comment            "The time at which the event has been written to the database" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:eventTimeZoneOffset  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "eventTimeZoneOffset" ;
+    rdfs:comment            "The time zone at which the event has occurred" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:eventID  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "eventID" ;
+    rdfs:comment            "The id of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:action  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1-epcis:ActionType ;
+    rdfs:label              "action" ;
+    rdfs:comment            "The action type of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:businessStep  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1-epcis:BusinessStep ;
+    rdfs:label              "business step" ;
+    rdfs:comment            "The business step of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:disposition  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1-epcis:Disposition ;
+    rdfs:label              "disposition" ;
+    rdfs:comment            "The disposition of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:readPoint  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1:Place ;
+    rdfs:label              "read point" ;
+    rdfs:comment            "The read point of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:businessLocation  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1:Place ;
+    rdfs:label              "businessLocation" ;
+    rdfs:comment            "The business location of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:source  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1:Organization ;
+    rdfs:label              "source" ;
+    rdfs:comment            "The source organization of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:destination  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1:Organization ;
+    rdfs:label              "destination" ;
+    rdfs:comment            "The destination organization of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:businessTransaction  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Event ;
+    rdfs:range              gs1-epcis:Transaction ;
+    rdfs:label              "businessTransaction" ;
+    rdfs:comment            "The business transaction of the event" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:ObjectEvent          
+    a                       rdfs:Class ;
+    rdfs:label              "ObjectEvent" ;
+    rdfs:comment            "A GS1 ObjectEvent" ;
+    rdfs:subClassOf         gs1-epcis:Event .
+
+gs1-epcis:epc  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:ObjectEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "epc" ;
+    rdfs:comment            "epc" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:AggregationEvent          
+    a                       rdfs:Class ;
+    rdfs:label              "AggregationEvent" ;
+    rdfs:comment            "A GS1 AggregationEvent" ;
+    rdfs:subClassOf         gs1-epcis:Event . 
+
+
+gs1-epcis:parent  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:AggregationEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "parent" ;
+    rdfs:comment            "parent" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:childEpc  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:AggregationEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "childEpc" ;
+    rdfs:comment            "childEpc" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:TransactionEvent          
+    a                       rdfs:Class ;
+    rdfs:label              "TransactionEvent" ;
+    rdfs:comment            "A GS1 TransactionEvent" ;
+    rdfs:subClassOf         gs1-epcis:Event .
+
+gs1-epcis:epc  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransactionEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "epc" ;
+    rdfs:comment            "epc" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:parent  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransactionEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "parent" ;
+    rdfs:comment            "parent" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:quantity  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransactionEvent ;
+    rdfs:range              gs1:Quantity ;
+    rdfs:label              "quantity" ;
+    rdfs:comment            "quantity" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+
+gs1-epcis:TransformationEvent          
+    a                       rdfs:Class ;
+    rdfs:label              "TransformationEvent" ;
+    rdfs:comment            "A GS1 TransformationEvent" ;
+    rdfs:subClassOf         gs1-epcis:Event .
+
+gs1-epcis:inputEpc  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransformationEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "input epc" ;
+    rdfs:comment            "input epc" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:outputEpc  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransformationEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "output epc" ;
+    rdfs:comment            "output epc" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:parent  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransformationEvent ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "parent" ;
+    rdfs:comment            "parent" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:inputQuantity  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransformationEvent ;
+    rdfs:range              gs1:Quantity ;
+    rdfs:label              "input quantity" ;
+    rdfs:comment            "input quantity" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:outputQuantity  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransformationEvent ;
+    rdfs:range              gs1:Quantity ;
+    rdfs:label              "output quantity" ;
+    rdfs:comment            "output quantity" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:transformationID  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:TransactionEvent ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "transformation ID" ;
+    rdfs:comment            "transformation ID" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1:Product          
+    a                       rdfs:Class ;
+    rdfs:label              "Product" ;
+    rdfs:comment            "A GS1 Product" .
+
+fsm:gpcCategoryCode  
+    a                       rdf:Property ;
+    rdfs:domain             gs1:Product ;
+    rdfs:range              fsm:GlobalProductClassification ;
+    rdfs:label              "gpc category code (skos concept)" ;
+    rdfs:comment            "gpc category code (skos concept)" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1:gpcCategoryCode  
+    a                       rdf:Property ;
+    rdfs:domain             gs1:Product ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "gpc category code (string)" ;
+    rdfs:comment            "gpc category code (string)" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1:linkType  
+    a                       rdf:Property ;
+    rdfs:domain             gs1:Product ;
+    rdfs:range              xsd:anyURI ;
+    rdfs:label              "link type" ;
+    rdfs:comment            "link type" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+fsm:organization  
+    a                       rdf:Property ;
+    rdfs:domain             gs1:Product ;
+    rdfs:range              gs1:Organization ;
+    rdfs:label              "organization" ;
+    rdfs:comment            "organization" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1:Organization          
+    a                       rdfs:Class ;
+    rdfs:label              "Organization" ;
+    rdfs:comment            "A GS1 Organization" .
+
+gs1-epcis:Transaction          
+    a                       rdfs:Class ;
+    rdfs:label              "Transaction" ;
+    rdfs:comment            "A GS1 Transaction" .
+
+gs1-epcis:transactionType  
+    a                       rdf:Property ;
+    rdfs:domain             gs1:Product ;
+    rdfs:range              gs1-epcis:TransactionType ;
+    rdfs:label              "transaction type" ;
+    rdfs:comment            "transaction type" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1:Place          
+    a                       rdfs:Class ;
+    rdfs:label              "Place" ;
+    rdfs:comment            "A GS1 Place" .
+
+gs1-epcis:BusinessStep          
+    a                       rdfs:Class ;
+    rdfs:label              "BusinessStep" ;
+    rdfs:comment            "A GS1 BusinessStep" ;
+    rdfs:subClassOf         skos:Concept .
+
+fsm:example  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:BusinessStep ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "example" ;
+    rdfs:comment            "example" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+# class BusinessStep {
+#     a skos:Concept
+#     skos:conceptScheme      <taxonomy/business_step>
+#     skos:prefLabel          string
+#     skos:description        string
+#     fsm:example             string
+# }
+
+gs1-epcis:Disposition          
+    a                       rdfs:Class ;
+    rdfs:label              "Disposition" ;
+    rdfs:comment            "A GS1 Disposition" ;
+    rdfs:subClassOf         skos:Concept .
+
+# class Disposition {
+#     a skos:Concept
+#     skos:conceptScheme      <taxonomy/disposition>
+#     skos:prefLabel          string
+#     skos:description        string
+#     fsm:example             string
+# }
+
+fsm:example  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Disposition ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "example" ;
+    rdfs:comment            "example" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:ActionType          
+    a                       rdfs:Class ;
+    rdfs:label              "ActionType" ;
+    rdfs:comment            "A GS1 ActionType" ;
+    rdfs:subClassOf         skos:Concept .
+
+# class ActionType {
+#     a skos:Concept
+#     skos:conceptScheme      <taxonomy/action_type>
+#     skos:prefLabel          string
+#     skos:description        string
+#     fsm:example             string
+# }
+
+fsm:example  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:ActionType ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "example" ;
+    rdfs:comment            "example" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:Quantity          
+    a                       rdfs:Class ;
+    rdfs:label              "Quantity" ;
+    rdfs:comment            "A GS1 Quantity" .
+
+gs1-epcis:value  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Quantity ;
+    rdfs:range              xsd:double ;
+    rdfs:label              "value" ;
+    rdfs:comment            "value" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:uom  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Quantity ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "uom" ;
+    rdfs:comment            "uom" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+gs1-epcis:epc  
+    a                       rdf:Property ;
+    rdfs:domain             gs1-epcis:Quantity ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "epc" ;
+    rdfs:comment            "epc" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+fsm:Retailer          
+    a                       rdfs:Class ;
+    rdfs:label              "Retailer" ;
+    rdfs:comment            "A GS1 Retailer" ;
+    rdfs:subClassOf         gs1:Organization .
+
+fsm:Producer          
+    a                       rdfs:Class ;
+    rdfs:label              "Producer" ;
+    rdfs:comment            "A GS1 Producer" ;
+    rdfs:subClassOf         fsm:Supplier .
+
+fsm:Manufacturer          
+    a                       rdfs:Class ;
+    rdfs:label              "Manufacturer" ;
+    rdfs:comment            "A GS1 Manufacturer" ;
+    rdfs:subClassOf         fsm:Supplier .
+
+fsm:FoodProcessor          
+    a                       rdfs:Class ;
+    rdfs:label              "FoodProcessor" ;
+    rdfs:comment            "A GS1 FoodProcessor" ;
+    rdfs:subClassOf         fsm:Supplier .
+
+fsm:CertificationBody          
+    a                       rdfs:Class ;
+    rdfs:label              "CertificationBody" ;
+    rdfs:comment            "A GS1 CertificationBody" ;
+    rdfs:subClassOf         gs1:Organization .
+
+fsm:CertificationSchemaOwner          
+    a                       rdfs:Class ;
+    rdfs:label              "CertificationSchemaOwner" ;
+    rdfs:comment            "A GS1 CertificationSchemaOwner" ;
+    rdfs:subClassOf         gs1:Organization .
+
+fsm:Supplier          
+    a                       rdfs:Class ;
+    rdfs:label              "Supplier" ;
+    rdfs:comment            "A GS1 Supplier" ;
+    rdfs:subClassOf         gs1:Organization .
+
+fsm:Incident          
+    a                       rdfs:Class ;
+    rdfs:label              "Incident" ;
+    rdfs:comment            "A GS1 Incident" ;
+    rdfs:subClassOf         gs1-epcis:ObjectEvent .
+
+fsm:Inspection          
+    a                       rdfs:Class ;
+    rdfs:label              "Inspection" ;
+    rdfs:comment            "A GS1 Inspection" ;
+    rdfs:subClassOf         gs1-epcis:ObjectEvent .
+
+fsm:LabTest          
+    a                       rdfs:Class ;
+    rdfs:label              "LabTest" ;
+    rdfs:comment            "A GS1 LabTest" ;
+    rdfs:subClassOf         gs1-epcis:ObjectEvent .
+
+fsm:Audit          
+    a                       rdfs:Class ;
+    rdfs:label              "Audit" ;
+    rdfs:comment            "A GS1 Audit" ;
+    rdfs:subClassOf         gs1-epcis:ObjectEvent .
+
+fsm:CertificateGrant          
+    a                       rdfs:Class ;
+    rdfs:label              "CertificateGrant" ;
+    rdfs:comment            "A GS1 CertificateGrant" ;
+    rdfs:subClassOf         gs1-epcis:ObjectEvent .
+
+fsm:Certificate          
+    a                       rdfs:Class ;
+    rdfs:label              "Certificate" ;
+    rdfs:comment            "A GS1 Certificate" ;
+    rdfs:subClassOf         gs1:Product .
+
+fsm:product  
+    a                       rdf:Property ;
+    rdfs:domain             fsm:Certificate ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "product" ;
+    rdfs:comment            "product" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+fsm:Document          
+    a                       rdfs:Class ;
+    rdfs:label              "Document" ;
+    rdfs:comment            "A GS1 Document" ;
+    rdfs:subClassOf         gs1:Product .
+
+fsm:product  
+    a                       rdf:Property ;
+    rdfs:domain             fsm:Document ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "product" ;
+    rdfs:comment            "product" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+    
+fsm:GlobalProductClassification          
+    a                       rdfs:Class ;
+    rdfs:label              "GlobalProductClassification" ;
+    rdfs:comment            "A GS1 GlobalProductClassification" ;
+    rdfs:subClassOf         skos:Concept .
+
+fsm:id  
+    a                       rdf:Property ;
+    rdfs:domain             fsm:GlobalProductClassification ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "id" ;
+    rdfs:comment            "id" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+# class GlobalProductClassification {
+#     a                       skos:Concept
+#     skos:conceptScheme      <taxonomy/global_product_classification>
+#     skos:prefLabel          string
+#     skos:description        string
+#     fsm:id                  string
+# }
+
+fsm:ProductBatch          
+    a                       rdfs:Class ;
+    rdfs:label              "ProductBatch" ;
+    rdfs:comment            "A GS1 ProductBatch" ;
+    rdfs:subClassOf         gs1:Product .
+
+fsm:product 
+    a                       rdf:Property ;
+    rdfs:domain             fsm:ProductBatch ;
+    rdfs:range              gs1:Product ;
+    rdfs:label              "product" ;
+    rdfs:comment            "product" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+fsm:Distributor          
+    a                       rdfs:Class ;
+    rdfs:label              "Distributor" ;
+    rdfs:comment            "A GS1 Distributor" ;
+    rdfs:subClassOf         fsm:Supplier .
+
+skos:Concept
+    a                       rdfs:Class ;
+    rdfs:label              "Concept" ;
+    rdfs:comment            "SKOS Concept" .
+
+skos:conceptScheme 
+    a                       rdf:Property ;
+    rdfs:domain             skos:Concept ;
+    rdfs:range              xsd:anyURI ;
+    rdfs:label              "conceptScheme" ;
+    rdfs:comment            "conceptScheme" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+skos:prefLabel 
+    a                       rdf:Property ;
+    rdfs:domain             skos:Concept ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "prefLabel" ;
+    rdfs:comment            "prefLabel" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+
+skos:description 
+    a                       rdf:Property ;
+    rdfs:domain             skos:Concept ;
+    rdfs:range              xsd:string ;
+    rdfs:label              "description" ;
+    rdfs:comment            "description" ;
+    owl:minCardinality      1 ;
+    owl:maxCardinality      1 .
+

@@ -101,6 +101,8 @@ In the FSM Platform we would like to be able to identify a product or a batch of
 In order to accomodate for such granularity we use the `fsm:product` relation to a product.
 
 # Use cases
+
+## The retailer (Agroknow)
 We use these requirements:
 1. Browse information
 2. list of the Certification Bodies and Certification Schema owners that the supplier (producer, processor) is working with. 
@@ -132,12 +134,28 @@ It should be part of down-stream processing.
 All the data will be within the system and will be queryable.
 Question like: How long results of Insepction/Audit are relevant after their release?
 8. This should be part of another layer above the database.
-## The retailer (Agroknow)
 
 ## Food authority
+Based on an overview of the responsibilities of 2 EU food authorities 
+(Bulgarian Food Safety Agency, Netherlands Food and Consumer Product Safety Authority) 
+we have extracted their obligations:
+* Animal Health - Keep animals healthy. Animal welfare. Animal products processing secure
+* Plant health - Plant diseases and prevent pests
+* Food safety - Supervising the production, preparation, transport and sale of food products and sale of tobacco products.
+* Product safety - Safe personal care products, indoor and outdoor games, consumer products in and around the house.
+* Border inspections
 
+The data we deem necessary for the FSM Platform are the:
+* Reports of inspections - they could include information about safety risks [e.g.](https://english.nvwa.nl/news/news/2017/08/03/nvwa-website-publishes-codes-of-fipronil-contaminated-eggs-from-investigated-farms)
+* News of new regulations - [e.g.](https://english.nvwa.nl/news/news/2020/11/30/bird-flu-avian-influenza-now-as-well-in-belgium-and-poland-mandatory-additional-cleansing--disinfection-transport-vehicles-in-the-netherlands). 
+In order to make this type of data queryable it would require to add the concepts of
+geo locations. As such regulations are issued for specific countries.
+
+Currently we decided to use only the reports of inspections.
+
+For example of inspections are part of the Documents heading explained above.
 ## Certification Body && The Certification Body for Organic PDO Wine Production (Valoritalia)
-An example to the use cases involvind certifications can be seen below.
+An example to the use cases involving certifications can be seen below.
 
 ![](certification-use-case/certification-use-case.svg)
 

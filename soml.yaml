@@ -1,0 +1,493 @@
+id: /soml/voc
+label: Ontotext Star Wars Ontology
+creator: http://www.linkedin.com/company/ontotext-ad
+versionInfo: '0.1'
+created: '2020-01-01'
+updated: '2020-04-30'
+prefixes:
+  dct: http://purl.org/dc/terms/
+  fsm: https://thefsm.ontotext.com/resource/ontology#
+  gs1: http://gs1.org/voc/
+  gs1-epcis: https://thefsm.ontotext.com/epcis#
+  owl: http://www.w3.org/2002/07/owl#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  skos: http://www.w3.org/2004/02/skos/core#
+  vann: http://purl.org/vocab/vann/
+  voc: https://swapi.co/vocabulary/
+specialPrefixes:
+  ontology_iri: https://thefsm.ontotext.com/epcis#
+  vocab_iri: https://swapi.co/vocabulary/
+  vocab_prefix: voc
+properties:
+  fsm:example:
+    descr: example
+    kind: literal
+    label: example
+    max: inf
+    range: string
+    rdfProp: fsm:example
+  fsm:gpcCategoryCode:
+    descr: gpc category code (skos concept)
+    kind: object
+    label: gpc category code (skos concept)
+    max: inf
+    range: fsm:GlobalProductClassification
+    rdfProp: fsm:gpcCategoryCode
+  fsm:id:
+    descr: id
+    kind: literal
+    label: id
+    max: inf
+    range: string
+    rdfProp: fsm:id
+  fsm:organization:
+    descr: organization
+    kind: object
+    label: organization
+    max: inf
+    range: gs1:OrganizationInterface
+    rdfProp: fsm:organization
+  fsm:product:
+    descr: product
+    kind: object
+    label: product
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: fsm:product
+  gs1-epcis:action:
+    descr: The action type of the event
+    kind: object
+    label: action
+    max: inf
+    range: gs1-epcis:ActionType
+    rdfProp: gs1-epcis:action
+  gs1-epcis:businessLocation:
+    descr: The business location of the event
+    kind: object
+    label: businessLocation
+    max: inf
+    range: gs1:Place
+    rdfProp: gs1-epcis:businessLocation
+  gs1-epcis:businessStep:
+    descr: The business step of the event
+    kind: object
+    label: business step
+    max: inf
+    range: gs1-epcis:BusinessStep
+    rdfProp: gs1-epcis:businessStep
+  gs1-epcis:businessTransaction:
+    descr: The business transaction of the event
+    kind: object
+    label: businessTransaction
+    max: inf
+    range: gs1-epcis:Transaction
+    rdfProp: gs1-epcis:businessTransaction
+  gs1-epcis:childEpc:
+    descr: childEpc
+    kind: object
+    label: childEpc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:childEpc
+  gs1-epcis:destination:
+    descr: The destination organization of the event
+    kind: object
+    label: destination
+    max: inf
+    range: gs1:OrganizationInterface
+    rdfProp: gs1-epcis:destination
+  gs1-epcis:disposition:
+    descr: The disposition of the event
+    kind: object
+    label: disposition
+    max: inf
+    range: gs1-epcis:Disposition
+    rdfProp: gs1-epcis:disposition
+  gs1-epcis:epc:
+    descr: epc
+    kind: object
+    label: epc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:epc
+  gs1-epcis:eventID:
+    descr: The id of the event
+    kind: literal
+    label: eventID
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:eventID
+  gs1-epcis:eventTime:
+    descr: The time at which the event has occurred
+    kind: literal
+    label: eventTime
+    max: inf
+    range: dateTime
+    rdfProp: gs1-epcis:eventTime
+  gs1-epcis:eventTimeZoneOffset:
+    descr: The time zone at which the event has occurred
+    kind: literal
+    label: eventTimeZoneOffset
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:eventTimeZoneOffset
+  gs1-epcis:inputEpc:
+    descr: input epc
+    kind: object
+    label: input epc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:inputEpc
+  gs1-epcis:inputQuantity:
+    descr: input quantity
+    kind: object
+    label: input quantity
+    max: inf
+    range: gs1:Quantity
+    rdfProp: gs1-epcis:inputQuantity
+  gs1-epcis:outputEpc:
+    descr: output epc
+    kind: object
+    label: output epc
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:outputEpc
+  gs1-epcis:outputQuantity:
+    descr: output quantity
+    kind: object
+    label: output quantity
+    max: inf
+    range: gs1:Quantity
+    rdfProp: gs1-epcis:outputQuantity
+  gs1-epcis:parent:
+    descr: parent
+    kind: object
+    label: parent
+    max: inf
+    range: gs1:ProductInterface
+    rdfProp: gs1-epcis:parent
+  gs1-epcis:quantity:
+    descr: quantity
+    kind: object
+    label: quantity
+    max: inf
+    range: gs1:Quantity
+    rdfProp: gs1-epcis:quantity
+  gs1-epcis:readPoint:
+    descr: The read point of the event
+    kind: object
+    label: read point
+    max: inf
+    range: gs1:Place
+    rdfProp: gs1-epcis:readPoint
+  gs1-epcis:recordTime:
+    descr: The time at which the event has been written to the database
+    kind: literal
+    label: recordTime
+    max: inf
+    range: dateTime
+    rdfProp: gs1-epcis:recordTime
+  gs1-epcis:source:
+    descr: The source organization of the event
+    kind: object
+    label: source
+    max: inf
+    range: gs1:OrganizationInterface
+    rdfProp: gs1-epcis:source
+  gs1-epcis:transactionType:
+    descr: transaction type
+    kind: object
+    label: transaction type
+    max: inf
+    range: gs1-epcis:TransactionType
+    rdfProp: gs1-epcis:transactionType
+  gs1-epcis:transformationID:
+    descr: transformation ID
+    kind: literal
+    label: transformation ID
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:transformationID
+  gs1-epcis:uom:
+    descr: uom
+    kind: literal
+    label: uom
+    max: inf
+    range: string
+    rdfProp: gs1-epcis:uom
+  gs1-epcis:value:
+    descr: value
+    kind: literal
+    label: value
+    max: inf
+    range: double
+    rdfProp: gs1-epcis:value
+  gs1:gpcCategoryCode:
+    descr: gpc category code (string)
+    kind: literal
+    label: gpc category code (string)
+    max: inf
+    range: string
+    rdfProp: gs1:gpcCategoryCode
+  gs1:linkType:
+    descr: link type
+    kind: literal
+    label: link type
+    max: inf
+    range: iri
+    rdfProp: gs1:linkType
+  skos:conceptScheme:
+    descr: conceptScheme
+    kind: literal
+    label: conceptScheme
+    max: inf
+    range: iri
+    rdfProp: skos:conceptScheme
+  skos:description:
+    descr: description
+    kind: literal
+    label: description
+    max: inf
+    range: string
+    rdfProp: skos:description
+  skos:prefLabel:
+    descr: prefLabel
+    kind: literal
+    label: prefLabel
+    max: inf
+    range: string
+    rdfProp: skos:prefLabel
+objects:
+  fsm:Audit:
+    descr: A GS1 Audit
+    inherits: gs1-epcis:ObjectEventInterface
+    label: Audit
+    type: fsm:Audit
+  fsm:Certificate:
+    descr: A GS1 Certificate
+    inherits: gs1:ProductInterface
+    label: Certificate
+    props:
+      fsm:product: {}
+    type: fsm:Certificate
+  fsm:CertificateGrant:
+    descr: A GS1 CertificateGrant
+    inherits: gs1-epcis:ObjectEventInterface
+    label: CertificateGrant
+    type: fsm:CertificateGrant
+  fsm:CertificationBody:
+    descr: A GS1 CertificationBody
+    inherits: gs1:OrganizationInterface
+    label: CertificationBody
+    type: fsm:CertificationBody
+  fsm:CertificationSchemaOwner:
+    descr: A GS1 CertificationSchemaOwner
+    inherits: gs1:OrganizationInterface
+    label: CertificationSchemaOwner
+    type: fsm:CertificationSchemaOwner
+  fsm:Distributor:
+    descr: A GS1 Distributor
+    inherits: fsm:SupplierInterface
+    label: Distributor
+    type: fsm:Distributor
+  fsm:Document:
+    descr: A GS1 Document
+    inherits: gs1:ProductInterface
+    label: Document
+    props:
+      fsm:product: {}
+    type: fsm:Document
+  fsm:FoodProcessor:
+    descr: A GS1 FoodProcessor
+    inherits: fsm:SupplierInterface
+    label: FoodProcessor
+    type: fsm:FoodProcessor
+  fsm:GlobalProductClassification:
+    descr: A GS1 GlobalProductClassification
+    inherits: skos:ConceptInterface
+    label: GlobalProductClassification
+    props:
+      fsm:id: {}
+    type: fsm:GlobalProductClassification
+  fsm:Incident:
+    descr: A GS1 Incident
+    inherits: gs1-epcis:ObjectEventInterface
+    label: Incident
+    type: fsm:Incident
+  fsm:Inspection:
+    descr: A GS1 Inspection
+    inherits: gs1-epcis:ObjectEventInterface
+    label: Inspection
+    type: fsm:Inspection
+  fsm:LabTest:
+    descr: A GS1 LabTest
+    inherits: gs1-epcis:ObjectEventInterface
+    label: LabTest
+    type: fsm:LabTest
+  fsm:Manufacturer:
+    descr: A GS1 Manufacturer
+    inherits: fsm:SupplierInterface
+    label: Manufacturer
+    type: fsm:Manufacturer
+  fsm:Producer:
+    descr: A GS1 Producer
+    inherits: fsm:SupplierInterface
+    label: Producer
+    type: fsm:Producer
+  fsm:ProductBatch:
+    descr: A GS1 ProductBatch
+    inherits: gs1:ProductInterface
+    label: ProductBatch
+    props:
+      fsm:product: {}
+    type: fsm:ProductBatch
+  fsm:Retailer:
+    descr: A GS1 Retailer
+    inherits: gs1:OrganizationInterface
+    label: Retailer
+    type: fsm:Retailer
+  fsm:Supplier:
+    descr: A GS1 Supplier
+    inherits: fsm:SupplierInterface
+    label: Supplier
+    type: fsm:Supplier
+  fsm:SupplierInterface:
+    descr: Abstract superclass of fsm:Supplier
+    inherits: gs1:OrganizationInterface
+    kind: abstract
+  gs1-epcis:ActionType:
+    descr: A GS1 ActionType
+    inherits: skos:ConceptInterface
+    label: ActionType
+    props:
+      fsm:example: {}
+    type: gs1-epcis:ActionType
+  gs1-epcis:AggregationEvent:
+    descr: A GS1 AggregationEvent
+    inherits: gs1-epcis:EventInterface
+    label: AggregationEvent
+    props:
+      gs1-epcis:childEpc: {}
+      gs1-epcis:parent: {}
+    type: gs1-epcis:AggregationEvent
+  gs1-epcis:BusinessStep:
+    descr: A GS1 BusinessStep
+    inherits: skos:ConceptInterface
+    label: BusinessStep
+    props:
+      fsm:example: {}
+    type: gs1-epcis:BusinessStep
+  gs1-epcis:Disposition:
+    descr: A GS1 Disposition
+    inherits: skos:ConceptInterface
+    label: Disposition
+    props:
+      fsm:example: {}
+    type: gs1-epcis:Disposition
+  gs1-epcis:Event:
+    descr: A GS1 Event
+    inherits: gs1-epcis:EventInterface
+    label: Event
+    type: gs1-epcis:Event
+  gs1-epcis:EventInterface:
+    descr: Abstract superclass of gs1-epcis:Event
+    kind: abstract
+    props:
+      gs1-epcis:action: {}
+      gs1-epcis:businessLocation: {}
+      gs1-epcis:businessStep: {}
+      gs1-epcis:businessTransaction: {}
+      gs1-epcis:destination: {}
+      gs1-epcis:disposition: {}
+      gs1-epcis:eventID: {}
+      gs1-epcis:eventTime: {}
+      gs1-epcis:eventTimeZoneOffset: {}
+      gs1-epcis:readPoint: {}
+      gs1-epcis:recordTime: {}
+      gs1-epcis:source: {}
+  gs1-epcis:ObjectEvent:
+    descr: A GS1 ObjectEvent
+    inherits: gs1-epcis:ObjectEventInterface
+    label: ObjectEvent
+    type: gs1-epcis:ObjectEvent
+  gs1-epcis:ObjectEventInterface:
+    descr: Abstract superclass of gs1-epcis:ObjectEvent
+    inherits: gs1-epcis:EventInterface
+    kind: abstract
+    props:
+      gs1-epcis:epc: {}
+  gs1-epcis:Quantity:
+    descr: A GS1 Quantity
+    label: Quantity
+    props:
+      gs1-epcis:epc: {}
+      gs1-epcis:uom: {}
+      gs1-epcis:value: {}
+    type: gs1-epcis:Quantity
+  gs1-epcis:Transaction:
+    descr: A GS1 Transaction
+    label: Transaction
+    type: gs1-epcis:Transaction
+  gs1-epcis:TransactionEvent:
+    descr: A GS1 TransactionEvent
+    inherits: gs1-epcis:EventInterface
+    label: TransactionEvent
+    props:
+      gs1-epcis:epc: {}
+      gs1-epcis:parent: {}
+      gs1-epcis:quantity: {}
+      gs1-epcis:transformationID: {}
+    type: gs1-epcis:TransactionEvent
+  gs1-epcis:TransactionType:
+    type: gs1-epcis:TransactionType
+  gs1-epcis:TransformationEvent:
+    descr: A GS1 TransformationEvent
+    inherits: gs1-epcis:EventInterface
+    label: TransformationEvent
+    props:
+      gs1-epcis:inputEpc: {}
+      gs1-epcis:inputQuantity: {}
+      gs1-epcis:outputEpc: {}
+      gs1-epcis:outputQuantity: {}
+      gs1-epcis:parent: {}
+    type: gs1-epcis:TransformationEvent
+  gs1:Organization:
+    descr: A GS1 Organization
+    inherits: gs1:OrganizationInterface
+    label: Organization
+    type: gs1:Organization
+  gs1:OrganizationInterface:
+    descr: Abstract superclass of gs1:Organization
+    kind: abstract
+  gs1:Place:
+    descr: A GS1 Place
+    label: Place
+    type: gs1:Place
+  gs1:Product:
+    descr: A GS1 Product
+    inherits: gs1:ProductInterface
+    label: Product
+    type: gs1:Product
+  gs1:ProductInterface:
+    descr: Abstract superclass of gs1:Product
+    kind: abstract
+    props:
+      fsm:gpcCategoryCode: {}
+      fsm:organization: {}
+      gs1-epcis:transactionType: {}
+      gs1:gpcCategoryCode: {}
+      gs1:linkType: {}
+  gs1:Quantity:
+    type: gs1:Quantity
+  skos:Concept:
+    descr: SKOS Concept
+    inherits: skos:ConceptInterface
+    label: Concept
+    type: skos:Concept
+  skos:ConceptInterface:
+    descr: Abstract superclass of skos:Concept
+    kind: abstract
+    props:
+      skos:conceptScheme: {}
+      skos:description: {}
+      skos:prefLabel: {}
