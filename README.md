@@ -1,3 +1,24 @@
+<!--TOC-->
+
+- [The FSM model](#the-fsm-model)
+  - [Certification](#certification)
+  - [Document](#document)
+- [Use cases](#use-cases)
+  - [The retailer (Agroknow)](#the-retailer-agroknow)
+  - [Food authority](#food-authority)
+  - [Certification Body && The Certification Body for Organic PDO Wine Production (Valoritalia)](#certification-body--the-certification-body-for-organic-pdo-wine-production-valoritalia)
+  - [Broilers example](#broilers-example)
+- [The EPCIS model](#the-epcis-model)
+- [Types of events](#types-of-events)
+  - [EPCISEvent](#epcisevent)
+  - [ErrorDeclaration](#errordeclaration)
+  - [ObjectEvent ](#objectevent-)
+  - [AggregationEvent](#aggregationevent)
+  - [TransactionEvent](#transactionevent)
+  - [TransformationEvent](#transformationevent)
+
+<!--TOC-->
+
 # Walkthrough
 There is a GS1 OWL ontology describing the  clothing, shoes, food beverage/tobacco and properties common to all products and locations.
 
