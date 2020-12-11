@@ -1,5 +1,6 @@
 <!--TOC-->
 
+- [Walkthrough](#walkthrough)
 - [The FSM model](#the-fsm-model)
   - [Certification](#certification)
   - [Document](#document)
