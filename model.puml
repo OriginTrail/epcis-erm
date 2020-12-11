@@ -29,7 +29,7 @@ class Product {
     a                           gs1:Product
     gs1:gpcCategoryCode         xsd:string
     gs1:linkType                xsd:anyURI
-    fsm:Organization            Organization
+    fsm:organization            Organization
     https://www.gs1.org/voc/Product
 }
 
@@ -72,7 +72,7 @@ class ActionType {
 }
 
 class Quantity {
-    quantity                xsd:double
+    value                   xsd:double
     uom                     string
 }
 
