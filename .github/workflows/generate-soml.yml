@@ -20,3 +20,5 @@ jobs:
         add: 'soml.yaml model.shacl'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: validate turtles
+      run: sh ci/validate-turtles.sh
