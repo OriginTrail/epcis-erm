@@ -1,0 +1,581 @@
+@prefix : <http://example.org/resource/> .
+@prefix gs1_epcis: <https://thefsm.ontotext.com/epcis#> .
+@prefix vocsh: <http://example.org/shape/> .
+@prefix so: <http://www.ontotext.com/semantic-object/> .
+@prefix affected: <http://www.ontotext.com/semantic-object/affected> .
+@prefix res: <http://www.ontotext.com/semantic-object/result/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix puml: <http://plantuml.com/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix fsm: <https://thefsm.ontotext.com/resource/ontology#> .
+@prefix gs1: <http://gs1.org/voc/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix gs1_epcis: <https://thefsm.ontotext.com/epcis#> .
+@prefix vocsh: <http://example.org/shape/> .
+
+vocsh:ActionTypeRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:ActionType ;  ] ];
+.
+
+vocsh:ActionType
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:ActionType ;  ] ];
+;
+	sh:property [
+		sh:path fsm:example ; 
+		sh:datatype xsd:string ; 
+	] .
+
+vocsh:AggregationEventRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:AggregationEvent ;  ] ];
+.
+
+vocsh:AggregationEvent
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:AggregationEvent ;  ] ];
+;
+	sh:property [
+		sh:path gs1_epcis:childEpc ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:parent ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] .
+
+vocsh:BusinessStepRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:BusinessStep ;  ] ];
+.
+
+vocsh:BusinessStep
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:BusinessStep ;  ] ];
+;
+	sh:property [
+		sh:path fsm:example ; 
+		sh:datatype xsd:string ; 
+	] .
+
+vocsh:DispositionRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Disposition ;  ] ];
+.
+
+vocsh:Disposition
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Disposition ;  ] ];
+;
+	sh:property [
+		sh:path fsm:example ; 
+		sh:datatype xsd:string ; 
+	] .
+
+vocsh:EventRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Event ;  ] ];
+.
+
+vocsh:Event
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Event ;  ] ];
+.
+
+vocsh:_EventInterfaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue gs1_epcis:AggregationEvent ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:Event ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEventInterface ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:TransactionEvent ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:TransformationEvent ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEvent ; ][sh:path rdf:type ; sh:hasValue fsm:Audit ; ][sh:path rdf:type ; sh:hasValue fsm:CertificateGrant ; ][sh:path rdf:type ; sh:hasValue fsm:Incident ; ][sh:path rdf:type ; sh:hasValue fsm:Inspection ; ][sh:path rdf:type ; sh:hasValue fsm:LabTest ; ] ) ;] ) ; ];
+.
+
+vocsh:_EventInterface
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue gs1_epcis:AggregationEvent ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:Event ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEventInterface ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:TransactionEvent ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:TransformationEvent ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEvent ; ][sh:path rdf:type ; sh:hasValue fsm:Audit ; ][sh:path rdf:type ; sh:hasValue fsm:CertificateGrant ; ][sh:path rdf:type ; sh:hasValue fsm:Incident ; ][sh:path rdf:type ; sh:hasValue fsm:Inspection ; ][sh:path rdf:type ; sh:hasValue fsm:LabTest ; ] ) ;] ) ; ];
+;
+	sh:property [
+		sh:path gs1_epcis:action ; 
+		sh:node vocsh:ActionTypeRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:businessLocation ; 
+		sh:node vocsh:gs1:PlaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:businessStep ; 
+		sh:node vocsh:BusinessStepRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:businessTransaction ; 
+		sh:node vocsh:TransactionRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:destination ; 
+		sh:node vocsh:_gs1:OrganizationInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:disposition ; 
+		sh:node vocsh:DispositionRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:eventID ; 
+		sh:datatype xsd:string ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:eventTime ; 
+		sh:datatype xsd:dateTime ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:eventTimeZoneOffset ; 
+		sh:datatype xsd:string ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:readPoint ; 
+		sh:node vocsh:gs1:PlaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:recordTime ; 
+		sh:datatype xsd:dateTime ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:source ; 
+		sh:node vocsh:_gs1:OrganizationInterfaceRef ; 
+	] .
+
+vocsh:ObjectEventRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEvent ;  ] ];
+.
+
+vocsh:ObjectEvent
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEvent ;  ] ];
+.
+
+vocsh:_ObjectEventInterfaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEvent ; ][sh:path rdf:type ; sh:hasValue fsm:Audit ; ][sh:path rdf:type ; sh:hasValue fsm:CertificateGrant ; ][sh:path rdf:type ; sh:hasValue fsm:Incident ; ][sh:path rdf:type ; sh:hasValue fsm:Inspection ; ][sh:path rdf:type ; sh:hasValue fsm:LabTest ; ] ) ;] ) ; ];
+.
+
+vocsh:_ObjectEventInterface
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue gs1_epcis:ObjectEvent ; ][sh:path rdf:type ; sh:hasValue fsm:Audit ; ][sh:path rdf:type ; sh:hasValue fsm:CertificateGrant ; ][sh:path rdf:type ; sh:hasValue fsm:Incident ; ][sh:path rdf:type ; sh:hasValue fsm:Inspection ; ][sh:path rdf:type ; sh:hasValue fsm:LabTest ; ] ) ;] ) ; ];
+;
+	sh:property [
+		sh:path gs1_epcis:epc ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] .
+
+vocsh:QuantityRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Quantity ;  ] ];
+.
+
+vocsh:Quantity
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Quantity ;  ] ];
+;
+	sh:property [
+		sh:path gs1_epcis:epc ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:q_value ; 
+		sh:datatype xsd:double ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:uom ; 
+		sh:datatype xsd:string ; 
+	] .
+
+vocsh:TransactionRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Transaction ;  ] ];
+.
+
+vocsh:Transaction
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:Transaction ;  ] ];
+.
+
+vocsh:TransactionEventRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:TransactionEvent ;  ] ];
+.
+
+vocsh:TransactionEvent
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:TransactionEvent ;  ] ];
+;
+	sh:property [
+		sh:path gs1_epcis:epc ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:parent ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:quantity ; 
+		sh:node vocsh:gs1:QuantityRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:transformationID ; 
+		sh:datatype xsd:string ; 
+	] .
+
+vocsh:TransactionTypeRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:TransactionType ;  ] ];
+.
+
+vocsh:TransactionType
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:TransactionType ;  ] ];
+.
+
+vocsh:TransformationEventRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:TransformationEvent ;  ] ];
+.
+
+vocsh:TransformationEvent
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1_epcis:TransformationEvent ;  ] ];
+;
+	sh:property [
+		sh:path gs1_epcis:inputEpc ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:inputQuantity ; 
+		sh:node vocsh:gs1:QuantityRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:outputEpc ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:outputQuantity ; 
+		sh:node vocsh:gs1:QuantityRef ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:parent ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] .
+
+vocsh:fsm:AuditRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Audit ;  ] ];
+.
+
+vocsh:fsm:Audit
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Audit ;  ] ];
+.
+
+vocsh:fsm:CertificateRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Certificate ;  ] ];
+.
+
+vocsh:fsm:Certificate
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Certificate ;  ] ];
+;
+	sh:property [
+		sh:path fsm:product ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] .
+
+vocsh:fsm:CertificateGrantRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:CertificateGrant ;  ] ];
+.
+
+vocsh:fsm:CertificateGrant
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:CertificateGrant ;  ] ];
+.
+
+vocsh:fsm:CertificationBodyRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:CertificationBody ;  ] ];
+.
+
+vocsh:fsm:CertificationBody
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:CertificationBody ;  ] ];
+.
+
+vocsh:fsm:CertificationSchemaOwnerRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:CertificationSchemaOwner ;  ] ];
+.
+
+vocsh:fsm:CertificationSchemaOwner
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:CertificationSchemaOwner ;  ] ];
+.
+
+vocsh:fsm:DistributorRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Distributor ;  ] ];
+.
+
+vocsh:fsm:Distributor
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Distributor ;  ] ];
+.
+
+vocsh:fsm:DocumentRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Document ;  ] ];
+.
+
+vocsh:fsm:Document
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Document ;  ] ];
+;
+	sh:property [
+		sh:path fsm:product ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] .
+
+vocsh:fsm:FoodProcessorRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:FoodProcessor ;  ] ];
+.
+
+vocsh:fsm:FoodProcessor
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:FoodProcessor ;  ] ];
+.
+
+vocsh:fsm:GlobalProductClassificationRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:GlobalProductClassification ;  ] ];
+.
+
+vocsh:fsm:GlobalProductClassification
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:GlobalProductClassification ;  ] ];
+;
+	sh:property [
+		sh:path fsm:id ; 
+		sh:datatype xsd:string ; 
+	] .
+
+vocsh:fsm:IncidentRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Incident ;  ] ];
+.
+
+vocsh:fsm:Incident
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Incident ;  ] ];
+.
+
+vocsh:fsm:InspectionRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Inspection ;  ] ];
+.
+
+vocsh:fsm:Inspection
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Inspection ;  ] ];
+.
+
+vocsh:fsm:LabTestRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:LabTest ;  ] ];
+.
+
+vocsh:fsm:LabTest
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:LabTest ;  ] ];
+.
+
+vocsh:fsm:ManufacturerRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Manufacturer ;  ] ];
+.
+
+vocsh:fsm:Manufacturer
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Manufacturer ;  ] ];
+.
+
+vocsh:fsm:ProducerRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Producer ;  ] ];
+.
+
+vocsh:fsm:Producer
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Producer ;  ] ];
+.
+
+vocsh:fsm:ProductBatchRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:ProductBatch ;  ] ];
+.
+
+vocsh:fsm:ProductBatch
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:ProductBatch ;  ] ];
+;
+	sh:property [
+		sh:path fsm:product ; 
+		sh:node vocsh:_gs1:ProductInterfaceRef ; 
+	] .
+
+vocsh:fsm:RetailerRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Retailer ;  ] ];
+.
+
+vocsh:fsm:Retailer
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Retailer ;  ] ];
+.
+
+vocsh:fsm:SupplierRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Supplier ;  ] ];
+.
+
+vocsh:fsm:Supplier
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue fsm:Supplier ;  ] ];
+.
+
+vocsh:_fsm:SupplierInterfaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue fsm:Distributor ; ][sh:path rdf:type ; sh:hasValue fsm:FoodProcessor ; ][sh:path rdf:type ; sh:hasValue fsm:Manufacturer ; ][sh:path rdf:type ; sh:hasValue fsm:Producer ; ][sh:path rdf:type ; sh:hasValue fsm:Supplier ; ] ) ;] ) ; ];
+.
+
+vocsh:_fsm:SupplierInterface
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue fsm:Distributor ; ][sh:path rdf:type ; sh:hasValue fsm:FoodProcessor ; ][sh:path rdf:type ; sh:hasValue fsm:Manufacturer ; ][sh:path rdf:type ; sh:hasValue fsm:Producer ; ][sh:path rdf:type ; sh:hasValue fsm:Supplier ; ] ) ;] ) ; ];
+.
+
+vocsh:gs1:OrganizationRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Organization ;  ] ];
+.
+
+vocsh:gs1:Organization
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Organization ;  ] ];
+.
+
+vocsh:_gs1:OrganizationInterfaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue fsm:CertificationBody ; ][sh:path rdf:type ; sh:hasValue fsm:CertificationSchemaOwner ; ][sh:path rdf:type ; sh:hasValue fsm:Retailer ; ][sh:path rdf:type ; sh:hasValue fsm:SupplierInterface ; ][sh:path rdf:type ; sh:hasValue gs1:Organization ; ][sh:path rdf:type ; sh:hasValue fsm:Distributor ; ][sh:path rdf:type ; sh:hasValue fsm:FoodProcessor ; ][sh:path rdf:type ; sh:hasValue fsm:Manufacturer ; ][sh:path rdf:type ; sh:hasValue fsm:Producer ; ][sh:path rdf:type ; sh:hasValue fsm:Supplier ; ] ) ;] ) ; ];
+.
+
+vocsh:_gs1:OrganizationInterface
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue fsm:CertificationBody ; ][sh:path rdf:type ; sh:hasValue fsm:CertificationSchemaOwner ; ][sh:path rdf:type ; sh:hasValue fsm:Retailer ; ][sh:path rdf:type ; sh:hasValue fsm:SupplierInterface ; ][sh:path rdf:type ; sh:hasValue gs1:Organization ; ][sh:path rdf:type ; sh:hasValue fsm:Distributor ; ][sh:path rdf:type ; sh:hasValue fsm:FoodProcessor ; ][sh:path rdf:type ; sh:hasValue fsm:Manufacturer ; ][sh:path rdf:type ; sh:hasValue fsm:Producer ; ][sh:path rdf:type ; sh:hasValue fsm:Supplier ; ] ) ;] ) ; ];
+.
+
+vocsh:gs1:PlaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Place ;  ] ];
+.
+
+vocsh:gs1:Place
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Place ;  ] ];
+.
+
+vocsh:gs1:ProductRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Product ;  ] ];
+.
+
+vocsh:gs1:Product
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Product ;  ] ];
+.
+
+vocsh:_gs1:ProductInterfaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue fsm:Certificate ; ][sh:path rdf:type ; sh:hasValue fsm:Document ; ][sh:path rdf:type ; sh:hasValue fsm:ProductBatch ; ][sh:path rdf:type ; sh:hasValue gs1:Product ; ] ) ;] ) ; ];
+.
+
+vocsh:_gs1:ProductInterface
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue fsm:Certificate ; ][sh:path rdf:type ; sh:hasValue fsm:Document ; ][sh:path rdf:type ; sh:hasValue fsm:ProductBatch ; ][sh:path rdf:type ; sh:hasValue gs1:Product ; ] ) ;] ) ; ];
+;
+	sh:property [
+		sh:path fsm:gpcCategoryCode ; 
+		sh:node vocsh:fsm:GlobalProductClassificationRef ; 
+	] ;
+	sh:property [
+		sh:path fsm:organization ; 
+		sh:node vocsh:_gs1:OrganizationInterfaceRef ; 
+	] ;
+	sh:property [
+		sh:path gs1:gpcCategoryCode ; 
+		sh:datatype xsd:string ; 
+	] ;
+	sh:property [
+		sh:path gs1:linkType ; 
+	] ;
+	sh:property [
+		sh:path gs1_epcis:transactionType ; 
+		sh:node vocsh:TransactionTypeRef ; 
+	] .
+
+vocsh:gs1:QuantityRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Quantity ;  ] ];
+.
+
+vocsh:gs1:Quantity
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue gs1:Quantity ;  ] ];
+.
+
+vocsh:skos:ConceptRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue skos:Concept ;  ] ];
+.
+
+vocsh:skos:Concept
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:Shape ; sh:property[ sh:path rdf:type ; sh:hasValue skos:Concept ;  ] ];
+.
+
+vocsh:_skos:ConceptInterfaceRef
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue gs1_epcis:ActionType ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:BusinessStep ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:Disposition ; ][sh:path rdf:type ; sh:hasValue fsm:GlobalProductClassification ; ][sh:path rdf:type ; sh:hasValue skos:Concept ; ] ) ;] ) ; ];
+.
+
+vocsh:_skos:ConceptInterface
+	a sh:NodeShape ;
+	rsx:targetShape [ a sh:NodeShape ; sh:and( [sh:or( [sh:path rdf:type ; sh:hasValue gs1_epcis:ActionType ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:BusinessStep ; ][sh:path rdf:type ; sh:hasValue gs1_epcis:Disposition ; ][sh:path rdf:type ; sh:hasValue fsm:GlobalProductClassification ; ][sh:path rdf:type ; sh:hasValue skos:Concept ; ] ) ;] ) ; ];
+;
+	sh:property [
+		sh:path skos:conceptScheme ; 
+	] ;
+	sh:property [
+		sh:path skos:description ; 
+		sh:datatype xsd:string ; 
+	] ;
+	sh:property [
+		sh:path skos:prefLabel ; 
+		sh:datatype xsd:string ; 
+	] .
+
