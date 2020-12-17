@@ -12,6 +12,7 @@ jobs:
     - name: generate_from_turtle
       id: ttl
       run:
+        docker logout
         bash ci/diagrams-to-puml.sh
     - name: plantuml
       id: plantuml
