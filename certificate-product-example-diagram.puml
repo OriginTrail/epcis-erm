@@ -1,0 +1,38 @@
+@startuml
+
+class _CertificateGrant1_ as "<CertificateGrant1>"
+_CertificateGrant1_ : a fsm:CertificateGrant
+class _Halal_Certificate_ as "<Halal_Certificate>"
+_CertificateGrant1_ -down-> _Halal_Certificate_ : gs1-epcis:epc
+class _Organization1_ as "<Organization1>"
+_CertificateGrant1_ -down-> _Organization1_ : gs1-epcis:destination
+class _TheIslamicFoodAndNutritionCouncilOfAmerica_ as "<TheIslamicFoodAndNutritionCouncilOfAmerica>"
+_CertificateGrant1_ -down-> _TheIslamicFoodAndNutritionCouncilOfAmerica_ : gs1-epcis:source
+class urn_epcglobal_cbv_bizstep_receiving as "urn:epcglobal:cbv:bizstep:receiving"
+_CertificateGrant1_ -down-> urn_epcglobal_cbv_bizstep_receiving : gs1-epcis:businessStep
+class urn_epcglobal_cbv_disp_active as "urn:epcglobal:cbv:disp:active"
+_CertificateGrant1_ -down-> urn_epcglobal_cbv_disp_active : gs1-epcis:disposition
+class _taxonomy_action_type_observe_ as "<taxonomy/action_type/observe>"
+_CertificateGrant1_ -down-> _taxonomy_action_type_observe_ : gs1-epcis:action
+_CertificateGrant1_ : gs1-epcis:eventID "certificate_grant2"
+_CertificateGrant1_ : gs1-epcis:eventTime "2019-08-22"^^xsd:dateTime
+_CertificateGrant1_ : gs1-epcis:eventTimeZoneOffset "00"
+_CertificateGrant1_ : gs1-epcis:recordTime "2020-12-02"^^xsd:dateTime
+_Halal_Certificate_ : a fsm:Certificate
+class _gtin_37003902_ as "<gtin/37003902>"
+_Halal_Certificate_ -down-> _gtin_37003902_ : fsm:product
+class _https_www_nuskin_com_content_nuskin_en_MY_products_nu_skin_halal_certificate__jcr_content_bodyContent_image_fef8_img_jpg_16eb5681485_cache_jpg_ as "<https://www.nuskin.com/content/nuskin/en_MY/products/nu_skin/halal_certificate/_jcr_content/bodyContent/image_fef8.img.jpg/16eb5681485-cache.jpg>"
+_Halal_Certificate_ -down-> _https_www_nuskin_com_content_nuskin_en_MY_products_nu_skin_halal_certificate__jcr_content_bodyContent_image_fef8_img_jpg_16eb5681485_cache_jpg_ : gs1:linkType
+_Halal_Certificate_ : gs1:expirationDate "2021-03-31"^^xsd:date
+_Organization1_ : a gs1:Organization
+_Organization1_ : gs1:organizationName "NSE Products, Inc."
+_TheIslamicFoodAndNutritionCouncilOfAmerica_ : a fsm:CertificationBody
+_TheIslamicFoodAndNutritionCouncilOfAmerica_ : gs1:organizationName "The Islamic Food And Nutrition Council Of America"
+_gtin_37003902_ : a gs1:Products
+_gtin_37003902_ : gs1:productName "ageLoc Body Shaping Gel"
+class _gtin_37003902_lot_1_ as "<gtin/37003902/lot/1>"
+_gtin_37003902_lot_1_ : a fsm:Batch
+_gtin_37003902_lot_1_ -down-> _gtin_37003902_ : fsm:product
+_gtin_37003902_lot_1_ : gs1:hasBatchLotNumber "1"
+_gtin_37003902_lot_1_ : gs1:productName "ageLoc Body Shaping Gel"
+@enduml
