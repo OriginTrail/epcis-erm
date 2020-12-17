@@ -1,7 +1,5 @@
 name: generate svgs
-on: 
-  workflow_run:
-    workflows: ["generate plantumls"]
+on:  push
 jobs:
   generate_plantuml:
     runs-on: ubuntu-latest
