@@ -34,5 +34,5 @@ class _gtin_37003902_lot_1_ as "<gtin/37003902/lot/1>"
 _gtin_37003902_lot_1_ : a fsm:Batch
 _gtin_37003902_lot_1_ -down-> _gtin_37003902_ : fsm:product
 _gtin_37003902_lot_1_ : gs1:hasBatchLotNumber "1"
-_gtin_37003902_lot_1_ : gs1:productName "ageLoc Body Shaping Gel"
+_gtin_37003902_lot_1_ : gs1:productName "ageLoc Body Shaping Gel test"
 @enduml
