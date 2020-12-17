@@ -26,7 +26,7 @@ class BroilerPackagedMeat {
 
 class BreedingFirm {
     a                       gs1:Organization
-    gs1:organizationName    "BroilerParentBreeders A"
+    gs1:organizationName    "BreedingFirm A"
 }
 
 class ParentBreeder {
@@ -42,22 +42,22 @@ class HatchingFirm {
 
 class BroilerFarm {
     a                       gs1:Organization
-    gs1:organizationName    "HatchingFirm A"
+    gs1:organizationName    "BroilerFarm A"
 }
 
 class SlaughterHouse {
     a                       gs1:Organization
-    gs1:organizationName    "HatchingFirm A"
+    gs1:organizationName    "SlaughterHouse A"
 }
 
 class Processor {
     a                       gs1:Organization
-    gs1:organizationName    "HatchingFirm A"
+    gs1:organizationName    "Processor A"
 }
 
 class Retailer {
     a                       gs1:Organization
-    gs1:organizationName    "HatchingFirm A"
+    gs1:organizationName    "Retailer A"
 }
 
 class LayAnEgg {

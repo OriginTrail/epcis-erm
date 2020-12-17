@@ -403,7 +403,7 @@ gs1-epcis:Quantity
     rdfs:label              "Quantity" ;
     rdfs:comment            "A GS1 Quantity" .
 
-gs1-epcis:value  
+gs1-epcis:q_value  
     a                       rdf:Property ;
     rdfs:domain             gs1-epcis:Quantity ;
     rdfs:range              xsd:double ;

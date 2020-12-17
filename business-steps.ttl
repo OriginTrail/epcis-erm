@@ -1,4 +1,5 @@
-
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
 
 urn:epcglobal:cbv:bizstep:accepting
     a skos:Concet ;

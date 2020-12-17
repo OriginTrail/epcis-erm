@@ -1,3 +1,6 @@
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
+
 urn:epcglobal:cbv:btt:bol 
     a skos:Concet ;
     skos:conceptScheme <taxonomy/transaction_type> ;

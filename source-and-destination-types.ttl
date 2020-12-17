@@ -1,3 +1,6 @@
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
+
 urn:epcglobal:cbv:sdt:owning_party 
     a skos:Concet ;
     skos:conceptScheme <taxonomy/source_and_destination_types> ;

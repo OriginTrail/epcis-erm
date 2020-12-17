@@ -179,6 +179,13 @@ properties:
     max: inf
     range: gs1:ProductInterface
     rdfProp: gs1-epcis:parent
+  q_value:
+    descr: value
+    kind: literal
+    label: value
+    max: inf
+    range: double
+    rdfProp: gs1-epcis:q_value
   quantity:
     descr: quantity
     kind: object
@@ -249,13 +256,6 @@ properties:
     max: inf
     range: string
     rdfProp: gs1-epcis:uom
-  value:
-    descr: value
-    kind: literal
-    label: value
-    max: inf
-    range: double
-    rdfProp: gs1-epcis:value
 objects:
   ActionType:
     descr: A GS1 ActionType
@@ -323,8 +323,8 @@ objects:
     label: Quantity
     props:
       epc: {}
+      q_value: {}
       uom: {}
-      value: {}
     type: gs1-epcis:Quantity
   Transaction:
     descr: A GS1 Transaction

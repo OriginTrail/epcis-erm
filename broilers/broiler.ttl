@@ -1,0 +1,180 @@
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix fsm:        <https://thefsm.ontotext.com/resource/ontology#> .
+@prefix gs1-epcis:  <https://thefsm.ontotext.com/epcis#> .
+@prefix gs1:        <http://gs1.org/voc/> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
+
+<gtin/broiler/lot/1>
+    a                   gs1:Product ;
+    gs1:productName     "Broiler"   .
+
+<gtin/broiler/lot/2>
+    a                   gs1:Product ;
+    gs1:productName     "Broiler" .
+
+<gtin/broiler_egg/lot/1>
+    a                   gs1:Product ;
+    gs1:productName     "Broiler Egg" .
+
+
+<gtin/broiler_meat/lot/1>
+    a                   gs1:Product ;
+    gs1:productName     "Broiler meat" .
+
+
+<gtin/broiler_packaged_meat/lot/1>
+    a                   gs1:Product ;
+    gs1:productName     "Broiler packaged meat" .
+
+
+<gln/1>
+    a                       gs1:Organization ;
+    gs1:organizationName    "BreedingFirm A" .
+
+<gln/2>
+    a                       gs1:Organization ;
+    gs1:organizationName    "BroilerParentBreeders A" .
+
+
+<gln/3>
+    a                       gs1:Organization ;
+    gs1:organizationName    "HatchingFirm A" .
+
+<gln/3>
+    a                       gs1:Organization ;
+    gs1:organizationName    "BroilerFarm A" .
+
+<gln/4>
+    a                       gs1:Organization ;
+    gs1:organizationName    "SlaughterHouse A" .
+
+<gln/5>
+    a                       gs1:Organization ;
+    gs1:organizationName    "Processor A" .
+
+<gln/6>
+    a                       gs1:Organization ;
+    gs1:organizationName    "Retailer A" .
+
+<epc/id/gdti/1>
+    a                               gs1-epcis:TransformationEvent ;
+    gs1-epcis:eventTime             "2020-05-02T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "LayAnEgg" ; 
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:creating_class_instance ;
+    gs1-epcis:source                <gln/2> ;
+    gs1-epcis:destination           <gln/2> ;
+    gs1-epcis:inputEpc              <gtin/broiler/lot/1> ;
+    gs1-epcis:outputEpc             <gtin/broiler_egg/lot/1> .
+
+<epc/id/gdti/2>
+    a                               gs1-epcis:TransformationEvent ;
+    gs1-epcis:eventTime             "2020-05-02T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "Hatching an egg" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:creating_class_instance ;
+    gs1-epcis:source                <gln/3> ;
+    gs1-epcis:destination           <gln/3> ;
+    gs1-epcis:inputEpc              <gtin/broiler_egg/lot/1> ;
+    gs1-epcis:outputEpc             <gtin/broiler/lot/2> .
+
+<epc/id/gdti/3>
+    a                               gs1-epcis:TransformationEvent ;
+    gs1-epcis:eventTime             "2020-05-02T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "Killing a broiler" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:creating_class_instance ;
+    gs1-epcis:source                <gln/4> ;
+    gs1-epcis:destination           <gln/4> ;
+    gs1-epcis:inputEpc              <gtin/broiler/lot/2> ;
+    gs1-epcis:outputEpc             <gtin/broiler_meat/lot/1> .
+
+<epc/id/gdti/4>
+    a                               gs1-epcis:TransformationEvent ;
+    gs1-epcis:eventTime             "2020-05-02T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "Packaging the meat" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:creating_class_instance ;
+    gs1-epcis:source                <gln/5> ;
+    gs1-epcis:destination           <gln/5> ;
+    gs1-epcis:inputEpc              <gtin/broiler_meat/lot/1> ;
+    gs1-epcis:outputEpc             <gtin/broiler_packaged_meat/lot/1> .
+
+
+<epc/id/gdti/5>
+    a                               gs1-epcis:ObjectEvent ;
+    gs1-epcis:eventTime             "2020-01-01T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "1" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:receiving ;
+    gs1-epcis:source                <gln/1> ;
+    gs1-epcis:destination           <gln/2> ;
+    gs1-epcis:epc                   <gtin/broiler/lot/1> .
+
+<epc/id/gdti/6>
+    a                               gs1-epcis:ObjectEvent ;
+    gs1-epcis:eventTime             "2020-08-01T09:00:00" ; 
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "2" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:receiving ;
+    gs1-epcis:source                <gln/2> ; 
+    gs1-epcis:destination           <gln/3> ; 
+    gs1-epcis:epc                   <gtin/broiler_egg/lot/1> . 
+
+
+<epc/id/gdti/7>
+    a                               gs1-epcis:ObjectEvent ;
+    gs1-epcis:eventTime             "2020-15-01T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "3" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:receiving ;
+    gs1-epcis:source                <gln/3> ;
+    gs1-epcis:destination           <gln/3> ;
+    gs1-epcis:epc                   <gtin/broiler/lot/2> .
+
+<epc/id/gdti/8>
+    a                               gs1-epcis:ObjectEvent ;
+    gs1-epcis:eventTime             "2020-21-01T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "4" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:receiving ;
+    gs1-epcis:source                <gln/3> ;
+    gs1-epcis:destination           <gln/4> ;
+    gs1-epcis:epc                   <gtin/broiler/lot/2> .
+
+<epc/id/gdti/9>
+    a                               gs1-epcis:ObjectEvent ;
+    gs1-epcis:eventTime             "2020-28-01T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "5" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:receiving ;
+    gs1-epcis:source                <gln/4> ;
+    gs1-epcis:destination           <gln/5> ; 
+    gs1-epcis:epc                   <gtin/broiler_meat/lot/1> .
+
+
+<epc/id/gdti/10>
+    a                               gs1-epcis:ObjectEvent ;
+    gs1-epcis:eventTime             "2020-05-02T09:00:00" ;
+    gs1-epcis:recordTime            "2020-11-09T09:00:00" ;
+    gs1-epcis:eventTimeZoneOffset   "+02" ;
+    gs1-epcis:eventID               "6" ;
+    gs1-epcis:bizStep               urn:epcglobal:cbv:bizstep:receiving ;
+    gs1-epcis:source                <gln/5> ;
+    gs1-epcis:destination           <gln/6> ;
+    gs1-epcis:epc                   <gtin/broiler_packaged_meat/lot/1> .
+

@@ -1,3 +1,6 @@
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
+
 urn:epcglobal:cbv:er:did_not_occur
     a skos:Concet ;
     skos:conceptScheme <taxonomy/error_reason> ;

@@ -1,0 +1,11 @@
+@base               <https://thefsm.ontotext.com/resource/> .
+@prefix fsm:        <https://thefsm.ontotext.com/resource/ontology#> .
+@prefix gs1-epcis:  <https://thefsm.ontotext.com/epcis#> .
+@prefix gs1:        <http://gs1.org/voc/> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
