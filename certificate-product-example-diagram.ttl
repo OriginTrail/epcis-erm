@@ -35,7 +35,7 @@
 
 <gtin/37003902/lot/1>
     a                       fsm:Batch ;
-    gs1:productName         "ageLoc Body Shaping Gel test" ;
+    gs1:productName         "ageLoc Body Shaping Gel" ;
     gs1:hasBatchLotNumber   "1" ;
     fsm:product             <gtin/37003902> . 
 

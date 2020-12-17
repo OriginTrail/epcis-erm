@@ -1,12 +1,12 @@
-name: generate svgs
-on:  push
+name: generate svg
+on: push
 jobs:
   generate_plantuml:
     runs-on: ubuntu-latest
     name: plantuml
     steps:
     - name: checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v1
       with:
         fetch-depth: 1
     - name: plantuml
@@ -17,4 +17,3 @@ jobs:
         message: "Render PlantUML files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
