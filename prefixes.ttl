@@ -1,7 +1,33 @@
 @base               <https://thefsm.ontotext.com/resource/> .
 @prefix fsm:        <https://thefsm.ontotext.com/resource/ontology#> .
+
+#GS1
 @prefix gs1-epcis:  <https://thefsm.ontotext.com/epcis#> .
 @prefix gs1:        <http://gs1.org/voc/> .
+
+#QB
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix sosa:  <http://www.w3.org/ns/sosa/> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+
+#GEO
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix sf:    <http://www.opengis.net/ont/sf#> .
+
+#WD
+@prefix wd: <http://www.wikidata.org/entity/>.
+@prefix wds: <http://www.wikidata.org/entity/statement/>.
+@prefix wdv: <http://www.wikidata.org/value/>.
+@prefix wdt: <http://www.wikidata.org/prop/direct/>.
+@prefix wikibase: <http://wikiba.se/ontology#>.
+@prefix p: <http://www.wikidata.org/prop/>.
+@prefix ps: <http://www.wikidata.org/prop/statement/>.
+@prefix pq: <http://www.wikidata.org/prop/qualifier/>.
+@prefix bd: <http://www.bigdata.com/rdf#>.
+
+
+#OTHER
 @prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:        <http://www.w3.org/2002/07/owl#> .
@@ -9,3 +35,4 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix urn:    <https://thefsm.ontotext.com/resource/gs1-epcis/> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/>.

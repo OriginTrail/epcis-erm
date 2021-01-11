@@ -1,0 +1,87 @@
+@prefix schema: <http://schema.org/> .
+@prefix pq:    <http://www.wikidata.org/prop/qualifier/> .
+@prefix fsm:   <https://thefsm.ontotext.com/resource/ontology#> .
+@prefix bd:    <http://www.bigdata.com/rdf#> .
+@prefix ps:    <http://www.wikidata.org/prop/statement/> .
+@prefix gs1:   <http://gs1.org/voc/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix wdt:   <http://www.wikidata.org/prop/direct/> .
+@prefix wds:   <http://www.wikidata.org/entity/statement/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdv:   <http://www.wikidata.org/value/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd:    <http://www.wikidata.org/entity/> .
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix qb:    <http://purl.org/linked-data/cube#> .
+@prefix sf:    <http://www.opengis.net/ont/sf#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sosa:  <http://www.w3.org/ns/sosa/> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
+@prefix urn:   <https://thefsm.ontotext.com/resource/gs1-epcis/> .
+@prefix p:     <http://www.wikidata.org/prop/> .
+@prefix gs1-epcis: <https://thefsm.ontotext.com/epcis#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+fsm:statisticalSummary
+        a                 qb:CodedProperty , sosa:ObservableProperty , qb:DimensionProperty ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Statistical Summary" ;
+        rdfs:range        fsm:Statistical_summary ;
+        qb:codeList       <https://thefsm.ontotext.com/resource/statistical_summary/> .
+
+<https://thefsm.ontotext.com/resource/statistical_summary/>
+        a             skos:ConceptScheme ;
+        rdfs:label    "Statistical Summary scheme" ;
+        rdfs:seeAlso  fsm:Statistical_summary .
+
+fsm:quantity_people  a    sosa:ObservableProperty , qb:MeasureProperty ;
+        rdfs:comment      "Number of people " ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Count People" ;
+        qb:concept        sdmx-concept:obsValue ;
+        fsm:derivedFrom   fsm:quantity .
+
+fsm:years  a              sosa:ObservableProperty , qb:MeasureProperty ;
+        rdfs:comment      "Duration in years of something" ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Years" ;
+        qb:concept        sdmx-concept:obsValue .
+
+fsm:quantity  a           sosa:ObservableProperty , qb:MeasureProperty ;
+        rdfs:comment      "Count of something" ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Count" ;
+        qb:concept        sdmx-concept:obsValue .
+
+fsm:dateTime  a           sosa:ObservableProperty , qb:DimensionProperty ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Date-time" ;
+        rdfs:range        xsd:dateTime ;
+        qb:concept        sdmx-concept:timePeriod .
+
+fsm:quantity_retired  a   sosa:ObservableProperty , qb:MeasureProperty ;
+        rdfs:comment      "Number of retired people " ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Брой пенсионери"@bg , "Count Retired" ;
+        qb:concept        sdmx-concept:obsValue ;
+        fsm:derivedFrom   fsm:quantity_people .
+
+fsm:Statistical_summary
+        a                 rdfs:Class ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Statistical Summary class" ;
+        rdfs:seeAlso      <https://thefsm.ontotext.com/resource/statistical_summary/> ;
+        rdfs:subClassOf   skos:Concept .
+
+fsm:    a            owl:Ontology ;
+        owl:imports  qb: , schema: , sf: .
+
+fsm:date  a               sosa:ObservableProperty , qb:DimensionProperty ;
+        rdfs:isDefinedBy  fsm: ;
+        rdfs:label        "Date-time" ;
+        rdfs:range        xsd:date ;
+        qb:concept        sdmx-concept:timePeriod .
